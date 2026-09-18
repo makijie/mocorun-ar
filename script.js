@@ -833,6 +833,24 @@ async function startCamera() {
 
 }
 // ==============================
+// モコルンの声
+// ==============================
+
+function speakMocorun(text) {
+
+    window.speechSynthesis.cancel();
+
+    const speech =
+        new SpeechSynthesisUtterance(text);
+
+    speech.lang = "ja-JP";
+    speech.pitch = 1.4;
+    speech.rate = 0.95;
+    speech.volume = 1;
+
+    window.speechSynthesis.speak(speech);
+}
+// ==============================
 // 3Dモコルンを表示
 // ==============================
 
@@ -918,6 +936,10 @@ mocorun3D.addEventListener(
         // セリフ変更
         mocorunSpeech.textContent =
             "✨ こっちだよ！";
+
+        speakMocorun(
+            "こっちだよ！"
+        );
 
 
         // ジャンプ後にヒントを表示
