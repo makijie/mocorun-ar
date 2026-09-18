@@ -836,19 +836,77 @@ async function startCamera() {
 // モコルンの声
 // ==============================
 
+let mocorunVoice = null;
+
+
 function speakMocorun(text) {
 
+    // Web Speech APIが使えるか確認
+    if (
+        !("speechSynthesis" in window) ||
+        !("SpeechSynthesisUtterance" in window)
+    ) {
+
+        console.log(
+            "このブラウザでは音声読み上げが使えません。"
+        );
+
+        return;
+    }
+
+
+    // 前の音声を停止
     window.speechSynthesis.cancel();
 
-    const speech =
-        new SpeechSynthesisUtterance(text);
 
-    speech.lang = "ja-JP";
-    speech.pitch = 1.4;
-    speech.rate = 0.95;
-    speech.volume = 1;
+    // 少し待ってから再生
+    setTimeout(function () {
 
-    window.speechSynthesis.speak(speech);
+        mocorunVoice =
+            new SpeechSynthesisUtterance(text);
+
+
+        mocorunVoice.lang =
+            "ja-JP";
+
+        mocorunVoice.pitch =
+            1.6;
+
+        mocorunVoice.rate =
+            0.85;
+
+        mocorunVoice.volume =
+            1;
+
+
+        // 日本語音声があれば使用
+        const voices =
+            window.speechSynthesis.getVoices();
+
+        const japaneseVoice =
+            voices.find(function (voice) {
+
+                return voice.lang.startsWith(
+                    "ja"
+                );
+
+            });
+
+
+        if (japaneseVoice) {
+
+            mocorunVoice.voice =
+                japaneseVoice;
+
+        }
+
+
+        window.speechSynthesis.speak(
+            mocorunVoice
+        );
+
+    }, 100);
+
 }
 // ==============================
 // 3Dモコルンを表示
@@ -957,34 +1015,7 @@ mocorun3D.addEventListener(
 
     }
 );
-    // 選んだスポットによって案内を変更
-
-    if (currentSpot === "nature") {
-
-        mocorunSpeech.textContent =
-            "🌿 木や草の近くを探してみよう！";
-
-    } else if (currentSpot === "rose") {
-
-        mocorunSpeech.textContent =
-            "🌸 花の近くに気配がするよ！";
-
-    } else if (currentSpot === "water") {
-
-        mocorunSpeech.textContent =
-            "💧 水辺をよく見てみよう！";
-
-    } else if (currentSpot === "sport") {
-
-        mocorunSpeech.textContent =
-            "🌟 広い場所を探してみよう！";
-
-    } else if (currentSpot === "secret") {
-
-        mocorunSpeech.textContent =
-            "✨ 何か特別な気配がするよ！";
-
-    }
+    
     // ==============================
 // TOPへ戻る
 // ==============================
