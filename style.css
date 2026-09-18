@@ -483,6 +483,15 @@ footer {
 
     }
 
+    .spawn-character {
+        width: 100px;
+    }
+    
+    /* モコルン横の星をスマホでは非表示 */
+    .sparkle4 {
+    display: none;
+    }
+
 }
 /* =========================
    オープニング画面
