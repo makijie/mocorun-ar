@@ -169,6 +169,9 @@ let discoveredCharacters =
 
 let currentSpot = "";
 
+// 探索中かどうか
+let isSearching = false;
+
 // ==============================
 // モコルンは案内役なので最初から図鑑登録
 // ==============================
@@ -317,6 +320,8 @@ spotButtons.forEach(function (button) {
 
 searchButton.addEventListener("click", function () {
 
+    isSearching = true;
+
     characterSpawnArea.innerHTML = "";
 
     searchButton.disabled = true;
@@ -356,7 +361,7 @@ searchButton.addEventListener("click", function () {
         ) + 6000;
 
 
-    // 発見2秒前
+    // 発見3.5秒前
     setTimeout(function () {
 
         mocorunSpeech.textContent =
@@ -366,7 +371,7 @@ searchButton.addEventListener("click", function () {
             "kehai.mp3"
         );
 
-    }, searchTime - 2000);
+    }, searchTime - 3500);
 
 
     // キャラクター発見
@@ -374,13 +379,46 @@ searchButton.addEventListener("click", function () {
 
         spawnCharacter();
 
-        mocorunSpeech.textContent =
+    // モコルンを正面向きに戻す
+    mocorun3D.setAttribute(
+        "camera-orbit",
+        "0deg 75deg 105%"
+    );
+
+    // 「見つけた！」の瞬間にジャンプ
+    mocorun3D.classList.remove(
+        "jump-guide"
+    );
+
+    void mocorun3D.offsetWidth;
+
+    mocorun3D.classList.add(
+        "jump-guide"
+    );
+    mocorunSpeech.textContent =
             "🌟 見つけた！";
 
-        playMocorunVoice(
+    playMocorunVoice(
             "mitsuketa.mp3"
         );
 
+if (mocorunAudio) {
+
+    mocorunAudio.onended = function () {
+
+        isSearching = false;
+
+    };
+
+}
+// ジャンプ終了後にクラスを外す
+    setTimeout(function () {
+
+        mocorun3D.classList.remove(
+            "jump-guide"
+        );
+
+    }, 1000);
 
         searchButton.disabled =
             false;
@@ -963,7 +1001,11 @@ mocorun3D.addEventListener(
         mocorunAnimating = true;
 
 
-        // ジャンプを最初から再生
+        // ==============================
+        // ジャンプ
+        // 探索中でも必ず動く
+        // ==============================
+
         mocorun3D.classList.remove(
             "jump-guide"
         );
@@ -975,23 +1017,42 @@ mocorun3D.addEventListener(
         );
 
 
-        // セリフ変更
-        mocorunSpeech.textContent =
-            "✨ こっちだよ！";
+        // ==============================
+        // 探索中でない時だけ
+        // 「こっちだよ！」と言う
+        // ==============================
 
-        playMocorunVoice(
-            "kocchidayo.mp3"
-        );    
-        
+        if (!isSearching) {
 
-        // ジャンプ後にヒントを表示
+            mocorunSpeech.textContent =
+                "✨ こっちだよ！";
+
+            playMocorunVoice(
+                "kocchidayo.mp3"
+            );
+
+        }
+
+
+        // ==============================
+        // 1秒後
+        // ==============================
+
         setTimeout(function () {
 
             mocorun3D.classList.remove(
                 "jump-guide"
             );
 
-            showSpotHint();
+
+            // 探索中でない時だけ
+            // スポットヒントへ戻す
+            if (!isSearching) {
+
+                showSpotHint();
+
+            }
+
 
             mocorunAnimating = false;
 
