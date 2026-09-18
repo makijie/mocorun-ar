@@ -325,55 +325,72 @@ searchButton.addEventListener("click", function () {
         "✨ 探索中...";
 
 
-    // モコルンを邪魔にならない位置へ移動
+    // モコルンを探索中の位置へ
     mocorunGuide.classList.add(
         "searching"
     );
 
-    // 探索開始後は背中を向けて先導
+
+    // 背中を向けて先導
     mocorun3D.setAttribute(
         "camera-orbit",
         "180deg 75deg 105%"
     );
 
+
+    // 最初の案内
     mocorunSpeech.textContent =
-        "🔍 ついてきて！";
+        "🔍 周りをゆっくり見渡してみよう！";
+
+
+    // 音声
+    playMocorunVoice(
+        "miwatashite.mp3"
+    );
 
 
     // 6〜10秒のランダム探索時間
     const searchTime =
-    Math.floor(Math.random() * 4000) + 6000;
+        Math.floor(
+            Math.random() * 4000
+        ) + 6000;
 
 
-    // 探索中の案内
-    mocorunSpeech.textContent =
-    "🔍 周りをゆっくり見渡してみよう！";
-
-
+    // 発見2秒前
     setTimeout(function () {
 
-    mocorunSpeech.textContent =
-        "✨ 何か気配がするよ…！";
+        mocorunSpeech.textContent =
+            "✨ 何か気配がするよ…！";
+
+        playMocorunVoice(
+            "kehai.mp3"
+        );
 
     }, searchTime - 2000);
 
 
+    // キャラクター発見
     setTimeout(function () {
 
-    spawnCharacter();
+        spawnCharacter();
 
-    mocorunSpeech.textContent =
-        "🌟 見つけた！";
+        mocorunSpeech.textContent =
+            "🌟 見つけた！";
 
-    searchButton.disabled = false;
+        playMocorunVoice(
+            "mitsuketa.mp3"
+        );
 
-    searchButton.textContent =
-        "🔍 もう一度探索する";
+
+        searchButton.disabled =
+            false;
+
+        searchButton.textContent =
+            "🔍 もう一度探索する";
 
     }, searchTime);
+
 });
-
-
 // ==============================
 // キャラクター出現
 // ==============================
@@ -832,80 +849,44 @@ async function startCamera() {
     }
 
 }
+
 // ==============================
-// モコルンの声
+// モコルン専用ボイス
 // ==============================
 
-let mocorunVoice = null;
+let mocorunAudio = null;
 
 
-function speakMocorun(text) {
+function playMocorunVoice(fileName) {
 
-    // Web Speech APIが使えるか確認
-    if (
-        !("speechSynthesis" in window) ||
-        !("SpeechSynthesisUtterance" in window)
-    ) {
+    // 前の声が鳴っていたら停止
+    if (mocorunAudio) {
 
-        console.log(
-            "このブラウザでは音声読み上げが使えません。"
-        );
+        mocorunAudio.pause();
+        mocorunAudio.currentTime = 0;
 
-        return;
     }
 
 
-    // 前の音声を停止
-    window.speechSynthesis.cancel();
-
-
-    // 少し待ってから再生
-    setTimeout(function () {
-
-        mocorunVoice =
-            new SpeechSynthesisUtterance(text);
-
-
-        mocorunVoice.lang =
-            "ja-JP";
-
-        mocorunVoice.pitch =
-            1.6;
-
-        mocorunVoice.rate =
-            0.85;
-
-        mocorunVoice.volume =
-            1;
-
-
-        // 日本語音声があれば使用
-        const voices =
-            window.speechSynthesis.getVoices();
-
-        const japaneseVoice =
-            voices.find(function (voice) {
-
-                return voice.lang.startsWith(
-                    "ja"
-                );
-
-            });
-
-
-        if (japaneseVoice) {
-
-            mocorunVoice.voice =
-                japaneseVoice;
-
-        }
-
-
-        window.speechSynthesis.speak(
-            mocorunVoice
+    // 音声ファイルを読み込む
+    mocorunAudio =
+        new Audio(
+            "sounds/mocorun/" + fileName
         );
 
-    }, 100);
+
+    mocorunAudio.volume = 1;
+
+
+    // 再生
+    mocorunAudio.play().catch(function (error) {
+
+        console.error(
+            "モコルン音声再生エラー:",
+            error
+        );
+
+    });
 
 }
 // ==============================
@@ -925,6 +906,9 @@ function showMocorunGuide() {
     mocorunSpeech.textContent =
         "👆 ぼくをタップしてみて！";
 
+    playMocorunVoice(
+        "tapshite.mp3"
+    );   
 }
 // ==============================
 // スポット別のヒント
@@ -995,10 +979,10 @@ mocorun3D.addEventListener(
         mocorunSpeech.textContent =
             "✨ こっちだよ！";
 
-        speakMocorun(
-            "こっちだよ！"
-        );
-
+        playMocorunVoice(
+            "kocchidayo.mp3"
+        );    
+        
 
         // ジャンプ後にヒントを表示
         setTimeout(function () {
