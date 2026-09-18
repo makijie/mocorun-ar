@@ -467,10 +467,10 @@ for (const character of catchableCharacters) {
     // ランダムな位置
 
     const randomLeft =
-        Math.random() * 50 + 25;
+        Math.random() * 40 + 30;
 
     const randomTop =
-        Math.random() * 45 + 25;
+        Math.random() * 40 + 25;
 
 
     characterElement.style.left =

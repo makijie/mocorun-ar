@@ -486,7 +486,7 @@ footer {
     .spawn-character {
         width: 100px;
     }
-    
+
     /* モコルン横の星をスマホでは非表示 */
     .sparkle4 {
     display: none;
@@ -2598,4 +2598,59 @@ footer {
 /* 探索画面の重複メッセージを非表示 */
 .explore-message {
     display: none;
+}
+/* =========================
+   スマホ最終調整
+========================= */
+
+@media (max-width: 600px) {
+
+    /* TOP画面の星を消す */
+    .sparkle {
+        display: none !important;
+    }
+
+    /* 探索キャラクターを少し小さくする */
+    .spawn-character {
+        width: 90px;
+    }
+
+    /* コモリンの飛行範囲をスマホでは小さくする */
+    @keyframes flyCharacter {
+
+        0%,
+        100% {
+            transform:
+                translate(-50%, -50%)
+                translateX(-15px)
+                translateY(5px)
+                rotate(-6deg);
+        }
+
+        25% {
+            transform:
+                translate(-50%, -50%)
+                translateX(15px)
+                translateY(-15px)
+                rotate(5deg);
+        }
+
+        50% {
+            transform:
+                translate(-50%, -50%)
+                translateX(20px)
+                translateY(8px)
+                rotate(-4deg);
+        }
+
+        75% {
+            transform:
+                translate(-50%, -50%)
+                translateX(-10px)
+                translateY(-18px)
+                rotate(6deg);
+        }
+
+    }
+
 }
