@@ -1,0 +1,2592 @@
+/* =========================
+   基本設定
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        sans-serif;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #7dd3fc 0%,
+            #bae6fd 35%,
+            #bbf7d0 70%,
+            #86efac 100%
+        );
+}
+
+
+/* =========================
+   タイトル画面
+========================= */
+
+.title-screen {
+
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px 20px;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================
+   上部メッセージ
+========================= */
+
+.secret-message {
+
+    position: absolute;
+
+    top: 25px;
+
+    right: 25px;
+
+    background: rgba(69, 39, 20, 0.85);
+
+    color: white;
+
+    padding: 12px 20px;
+
+    border-radius: 20px;
+
+    font-weight: bold;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+}
+
+
+/* =========================
+   タイトル
+========================= */
+
+.title-area {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin-bottom: 20px;
+
+}
+
+
+.small-title {
+
+    color: #166534;
+
+    font-weight: bold;
+
+    font-size: 18px;
+
+    margin-bottom: 10px;
+
+}
+
+
+h1 {
+
+    font-size: clamp(42px, 8vw, 80px);
+
+    line-height: 1.1;
+
+    color: white;
+
+    text-shadow:
+        4px 4px 0 #166534,
+        -2px -2px 0 #166534,
+        2px -2px 0 #166534,
+        -2px 2px 0 #166534;
+
+}
+
+
+h1 span {
+
+    color: #fef08a;
+
+}
+
+
+h2 {
+
+    margin-top: 15px;
+
+    color: #ffffff;
+
+    font-size: clamp(18px, 3vw, 28px);
+
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+
+}
+
+
+/* =========================
+   モコルン
+========================= */
+
+.character-area {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin: 20px 0;
+
+}
+
+
+.mocorun {
+
+    position: relative;
+
+    z-index: 2;
+
+    animation: float 3s ease-in-out infinite;
+
+}
+
+
+.mocorun img {
+
+    width: min(260px, 60vw);
+
+    height: auto;
+
+    display: block;
+
+    filter:
+        drop-shadow(0 15px 15px rgba(0, 0, 0, 0.25));
+
+}
+
+
+.mocorun-glow {
+
+    width: 150px;
+
+    height: 150px;
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 180, 0.5);
+
+    filter: blur(25px);
+
+    animation: glow 2s infinite alternate;
+
+}
+
+
+.character-message {
+
+    margin-top: 10px;
+
+    color: #14532d;
+
+    font-weight: bold;
+
+    font-size: 18px;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    padding: 10px 20px;
+
+    border-radius: 20px;
+
+}
+
+
+/* =========================
+   ボタン
+========================= */
+
+.menu {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+    width: min(90%, 350px);
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.game-button {
+
+    border: none;
+
+    padding: 18px;
+
+    border-radius: 50px;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    background: white;
+
+    color: #14532d;
+
+    box-shadow:
+        0 6px 0 rgba(20, 83, 45, 0.4),
+        0 10px 20px rgba(0, 0, 0, 0.15);
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+
+}
+
+
+.game-button:hover {
+
+    transform: translateY(-3px);
+
+}
+
+
+.game-button:active {
+
+    transform: translateY(3px);
+
+    box-shadow:
+        0 2px 0 rgba(20, 83, 45, 0.4);
+
+}
+
+
+/* はじめるボタン */
+
+.start-button {
+
+    background:
+        linear-gradient(
+            135deg,
+            #facc15,
+            #f97316
+        );
+
+    color: white;
+
+}
+
+
+/* =========================
+   下部
+========================= */
+
+footer {
+
+    margin-top: 30px;
+
+    display: flex;
+
+    gap: 20px;
+
+    color: white;
+
+    font-weight: bold;
+
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+/* =========================
+   キラキラ
+========================= */
+
+.sparkle {
+
+    position: absolute;
+
+    font-size: 35px;
+
+    animation: sparkle 3s infinite;
+
+}
+
+
+.sparkle1 {
+
+    top: 20%;
+
+    left: 10%;
+
+}
+
+
+.sparkle2 {
+
+    top: 35%;
+
+    right: 15%;
+
+}
+
+
+.sparkle3 {
+
+    bottom: 20%;
+
+    left: 20%;
+
+}
+
+
+.sparkle4 {
+
+    bottom: 15%;
+
+    right: 10%;
+
+}
+
+
+/* =========================
+   アニメーション
+========================= */
+
+@keyframes float {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes glow {
+
+    from {
+        opacity: 0.4;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+
+    to {
+        opacity: 0.9;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+
+}
+
+
+@keyframes sparkle {
+
+    0% {
+        transform: scale(0.8) rotate(0deg);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.3) rotate(20deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.8) rotate(0deg);
+        opacity: 0.5;
+    }
+
+}
+
+
+/* =========================
+   スマホ対応
+========================= */
+
+@media (max-width: 600px) {
+
+    .secret-message {
+
+        position: relative;
+
+        top: auto;
+
+        right: auto;
+
+        margin-bottom: 20px;
+
+        font-size: 14px;
+
+    }
+
+
+    footer {
+
+        flex-direction: column;
+
+        gap: 5px;
+
+    }
+
+
+    .mocorun {
+
+        font-size: 80px;
+
+    }
+
+}
+/* =========================
+   オープニング画面
+========================= */
+
+.opening-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #172554 0%,
+            #312e81 45%,
+            #14532d 100%
+        );
+
+    overflow-y: auto;
+
+}
+
+
+/* オープニングカード */
+
+.opening-card {
+
+    width: min(90%, 650px);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 35px 30px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.35);
+
+    animation: openingAppear 0.8s ease;
+
+}
+
+
+/* PROLOGUE */
+
+.opening-label {
+
+    color: #6366f1;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* タイトル */
+
+.opening-card h2 {
+
+    color: #14532d;
+
+    font-size: clamp(25px, 5vw, 40px);
+
+    line-height: 1.5;
+
+    text-shadow: none;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* モコルン */
+
+.opening-character img {
+
+    width: min(200px, 50vw);
+
+    height: auto;
+
+    display: block;
+
+    margin: 10px auto;
+
+    filter:
+        drop-shadow(0 10px 10px rgba(0, 0, 0, 0.2));
+
+    animation: float 3s ease-in-out infinite;
+
+}
+
+
+/* 説明文 */
+
+.opening-text {
+
+    color: #374151;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    margin: 15px 0;
+
+}
+
+
+/* 幻想スコープ */
+
+.scope-message {
+
+    display: inline-block;
+
+    margin: 15px 0 20px;
+
+    padding: 12px 20px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ddd6fe,
+            #fef3c7
+        );
+
+    color: #4c1d95;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 5px 15px rgba(79, 70, 229, 0.2);
+
+}
+
+
+/* 登場アニメーション */
+
+@keyframes openingAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform: scale(0.9)
+                   translateY(30px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1)
+                   translateY(0);
+
+    }
+
+}
+/* =========================
+   公園探索画面
+========================= */
+
+.explore-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 150;
+
+    display: none;
+
+    flex-direction: column;
+
+    background:
+        linear-gradient(
+            180deg,
+            #7dd3fc 0%,
+            #bae6fd 45%,
+            #86efac 45%,
+            #4ade80 100%
+        );
+
+    overflow: hidden;
+
+}
+
+
+/* =========================
+   上部メニュー
+========================= */
+
+.explore-header {
+
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 10px 20px;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    backdrop-filter: blur(10px);
+
+    position: relative;
+
+    z-index: 10;
+
+}
+
+
+.scope-status {
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    color: #4c1d95;
+
+}
+
+
+.icon-button {
+
+    border: none;
+
+    padding: 10px 18px;
+
+    border-radius: 20px;
+
+    background: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
+}
+
+
+/* =========================
+   公園エリア
+========================= */
+
+.park-area {
+
+    flex: 1;
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+/* =========================
+   カメラ映像
+========================= */
+
+.camera-video {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 0;
+
+    background: #000;
+
+}
+
+
+/* カメラ使用中は案内メッセージを非表示 */
+
+
+.park-area.camera-active .explore-message{
+    display: none;
+
+}
+
+/* =========================
+   3D案内役モコルン
+========================= */
+
+.mocorun-guide {
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 18%;
+
+    transform: translateX(-50%);
+
+    z-index: 15;
+
+    display: none;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    pointer-events: none;
+
+}
+
+
+.mocorun-3d {
+
+    width: 180px;
+    height: 180px;
+
+    background: transparent;
+
+    --poster-color: transparent;
+
+    pointer-events: auto;
+
+}
+
+
+.mocorun-speech {
+
+    margin-top: -10px;
+
+    padding: 10px 16px;
+
+    max-width: 250px;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    color: #14532d;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0, 0, 0, 0.2);
+
+}
+
+
+/* モコルン表示 */
+
+.mocorun-guide.show {
+
+    display: flex;
+
+    animation:
+        mocorunGuideAppear
+        0.7s ease;
+
+}
+
+
+@keyframes mocorunGuideAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateX(-50%)
+            translateY(40px)
+            scale(0.7);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateX(-50%)
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+/* =========================
+   3Dモコルン ジャンプ
+========================= */
+
+.mocorun-3d.jump-guide {
+
+    animation:
+        mocorunJump
+        1s ease;
+
+}
+
+
+@keyframes mocorunJump {
+
+    0% {
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+    25% {
+
+        transform:
+            translateY(5px)
+            scale(1.05, 0.9);
+
+    }
+
+    55% {
+
+        transform:
+            translateY(-45px)
+            scale(0.95, 1.08);
+
+    }
+
+    80% {
+
+        transform:
+            translateY(0)
+            scale(1.05, 0.95);
+
+    }
+
+    100% {
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+/* =========================
+   探索中のモコルン
+========================= */
+
+.mocorun-guide.searching {
+
+    left: 68%;
+
+    right: auto;
+
+    bottom: 32%;
+
+    transform:
+        translateX(-50%)
+        scale(0.78);
+
+}
+
+
+.mocorun-guide.searching .mocorun-3d {
+
+    width: 95px;
+
+    height: 95px;
+
+}
+
+
+.mocorun-guide.searching .mocorun-speech {
+
+    font-size: 12px;
+
+    max-width: 170px;
+
+    padding: 8px 12px;
+
+}
+
+/* =========================
+   キャラクター出現エリア
+========================= */
+
+#characterSpawnArea {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 5;
+
+}
+
+
+/* =========================
+   メッセージ
+========================= */
+
+.explore-message {
+
+    position: absolute;
+
+    bottom: 20px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: max-content;
+
+    max-width: 90%;
+
+    padding: 12px 20px;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    border-radius: 25px;
+
+    font-weight: bold;
+
+    color: #14532d;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+
+}
+
+
+/* =========================
+   下部
+========================= */
+
+.explore-footer {
+
+    padding: 15px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.85);
+
+}
+
+
+.search-button {
+
+    width: min(90%, 400px);
+
+    border: none;
+
+    padding: 18px;
+
+    border-radius: 50px;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #22c55e,
+            #15803d
+        );
+
+    box-shadow:
+        0 6px 0 #166534,
+        0 10px 20px rgba(0, 0, 0, 0.2);
+
+}
+/* =========================
+   出現キャラクター
+========================= */
+
+.spawn-character {
+
+    position: absolute;
+
+    width: 130px;
+
+    transform:
+        translate(-50%, -50%);
+
+    cursor: pointer;
+
+    text-align: center;
+
+    animation:
+        characterAppear 0.5s ease;
+
+    z-index: 20;
+
+}
+
+
+/* キャラクター画像 */
+
+.spawn-character img {
+
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    filter:
+        drop-shadow(
+            0 10px 8px
+            rgba(0, 0, 0, 0.3)
+        );
+
+}
+
+
+/* キャラクター名 */
+
+.character-name {
+
+    margin-top: 5px;
+
+    padding: 5px 10px;
+
+    background:
+        rgba(255, 255, 255, 0.85);
+
+    border-radius: 20px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    color: #14532d;
+
+}
+
+
+/* =========================
+   出現アニメーション
+========================= */
+
+@keyframes characterAppear {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0);
+
+    }
+
+    70% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.2);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+
+    }
+
+}
+
+
+/* ふわふわ動く */
+
+@keyframes characterFloat {
+
+    0% {
+
+        margin-top: 0;
+
+    }
+
+    50% {
+
+        margin-top: -15px;
+
+    }
+
+    100% {
+
+        margin-top: 0;
+
+    }
+
+}
+
+
+/* 探索中ボタン */
+
+.search-button:disabled {
+
+    opacity: 0.7;
+
+    cursor: not-allowed;
+
+}
+/* =========================
+   図鑑画面
+========================= */
+
+.collection-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    flex-direction: column;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fef3c7,
+            #dcfce7
+        );
+
+    z-index: 200;
+
+    overflow-y: auto;
+
+}
+
+
+/* =========================
+   図鑑ヘッダー
+========================= */
+
+.collection-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 20px;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+
+.collection-header h2 {
+
+    color: #14532d;
+
+}
+
+
+/* 戻るボタン */
+
+.close-button {
+
+    border: none;
+
+    padding: 10px 18px;
+
+    border-radius: 20px;
+
+    background: #ef4444;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================
+   図鑑情報
+========================= */
+
+.collection-info {
+
+    text-align: center;
+
+    padding: 20px;
+
+    color: #14532d;
+
+    font-weight: bold;
+
+}
+
+
+/* =========================
+   図鑑一覧
+========================= */
+
+.collection-list {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(160px, 1fr));
+
+    gap: 20px;
+
+    padding: 20px;
+
+    width: min(100%, 1000px);
+
+    margin: 0 auto;
+
+}
+
+
+/* =========================
+   図鑑カード
+========================= */
+
+.collection-card {
+
+    background: white;
+
+    border-radius: 25px;
+
+    padding: 15px;
+
+    text-align: center;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.12);
+
+    transition: transform 0.2s;
+
+}
+
+
+.collection-card:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
+/* 発見済み画像 */
+
+.collection-card img {
+
+    width: 120px;
+
+    height: 120px;
+
+    object-fit: contain;
+
+}
+
+
+/* 未発見 */
+
+.collection-card.locked {
+
+    background: #e5e7eb;
+
+}
+
+
+.locked-character {
+
+    font-size: 70px;
+
+    filter: grayscale(1);
+
+}
+
+
+/* キャラクター名 */
+
+.collection-name {
+
+    margin-top: 10px;
+
+    font-weight: bold;
+
+    color: #14532d;
+
+}
+
+
+/* 未発見の名前 */
+
+.collection-unknown {
+
+    color: #6b7280;
+
+}
+/* =========================
+   キャラクター発見画面
+========================= */
+
+.discovery-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 500;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.9),
+            rgba(129, 140, 248, 0.9),
+            rgba(49, 46, 129, 0.95)
+        );
+
+}
+
+
+/* キラキラ */
+
+.discovery-effect {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    padding-top: 10vh;
+
+    font-size: 40px;
+
+    letter-spacing: 15px;
+
+    animation:
+        sparkle 1s ease-in-out infinite alternate;
+
+}
+
+
+/* 発見カード */
+
+.discovery-card {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(85%, 420px);
+
+    padding: 35px 25px;
+
+    text-align: center;
+
+    border-radius: 35px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    box-shadow:
+        0 0 40px rgba(255, 255, 255, 0.8),
+        0 25px 50px rgba(0, 0, 0, 0.3);
+
+    animation:
+        discoveryAppear 0.6s ease;
+
+}
+
+
+/* 発見タイトル */
+
+.discovery-title {
+
+    font-size: 32px;
+
+    font-weight: bold;
+
+    color: #f59e0b;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* キャラクター画像 */
+
+.discovery-image img {
+
+    width: 180px;
+
+    max-width: 70vw;
+
+    height: auto;
+
+    filter:
+        drop-shadow(
+            0 15px 10px
+            rgba(0, 0, 0, 0.25)
+        );
+
+    animation:
+        discoveryCharacter 1s ease-in-out infinite alternate;
+
+}
+
+
+/* キャラクター名 */
+
+#discoveryName {
+
+    color: #14532d;
+
+    font-size: 30px;
+
+    margin: 10px 0;
+
+}
+
+
+/* レア度 */
+
+#discoveryRarity {
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color: #7c3aed;
+
+}
+
+
+/* メッセージ */
+
+.discovery-message {
+
+    color: #374151;
+
+    font-weight: bold;
+
+    margin: 20px 0;
+
+}
+
+
+/* ボタン */
+
+.discovery-ok-button {
+
+    border: none;
+
+    padding: 15px 30px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #22c55e,
+            #15803d
+        );
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 0 #166534;
+
+}
+
+
+/* =========================
+   アニメーション
+========================= */
+
+@keyframes sparkle {
+
+    from {
+
+        opacity: 0.4;
+
+        transform: scale(0.9);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1.1);
+
+    }
+
+}
+
+
+@keyframes discoveryAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0.5)
+            rotate(-5deg);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            rotate(0deg);
+
+    }
+
+}
+
+
+@keyframes discoveryCharacter {
+
+    from {
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+    to {
+
+        transform:
+            translateY(-12px)
+            scale(1.08);
+
+    }
+
+}
+/* =========================
+   キャラクター別アニメーション
+========================= */
+
+
+/* =========================
+   モコルン
+   大きくジャンプ！
+========================= */
+
+.character-image.jump {
+
+    animation:
+        characterAppear 0.5s ease,
+        jumpCharacter 1.2s ease-in-out infinite;
+
+}
+
+@keyframes jumpCharacter {
+
+    0%,
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            translateY(0)
+            scale(1);
+
+    }
+
+    15% {
+
+        transform:
+            translate(-50%, -50%)
+            translateY(0)
+            scale(1.15, 0.8);
+
+    }
+
+    50% {
+
+        transform:
+            translate(-50%, -50%)
+            translateY(-70px)
+            scale(0.9, 1.1);
+
+    }
+
+    85% {
+
+        transform:
+            translate(-50%, -50%)
+            translateY(0)
+            scale(1.15, 0.8);
+
+    }
+
+}
+
+
+/* =========================
+   コモリン
+   左右に飛び回る！
+========================= */
+
+.character-image.fly {
+
+    animation:
+        characterAppear 0.5s ease,
+        flyCharacter 3s ease-in-out infinite;
+
+}
+
+@keyframes flyCharacter {
+
+    0%,
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            translateX(-40px)
+            translateY(10px)
+            rotate(-10deg);
+
+    }
+
+    25% {
+
+        transform:
+            translate(-50%, -50%)
+            translateX(40px)
+            translateY(-30px)
+            rotate(8deg);
+
+    }
+
+    50% {
+
+        transform:
+            translate(-50%, -50%)
+            translateX(70px)
+            translateY(15px)
+            rotate(-5deg);
+
+    }
+
+    75% {
+
+        transform:
+            translate(-50%, -50%)
+            translateX(-20px)
+            translateY(-40px)
+            rotate(10deg);
+
+    }
+
+}
+
+
+/* =========================
+   ポヨン
+   消えて現れる！
+========================= */
+
+.character-image.ghost {
+
+    animation:
+        characterAppear 0.5s ease,
+        ghostCharacter 2.5s ease-in-out infinite;
+
+}
+
+@keyframes ghostCharacter {
+
+    0%,
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+
+    }
+
+    35% {
+
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0.7);
+
+    }
+
+    50% {
+
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            translateX(50px)
+            translateY(-20px)
+            scale(0.7);
+
+    }
+
+    65% {
+
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            translateX(50px)
+            translateY(-20px)
+            scale(1.1);
+
+    }
+
+}
+
+
+
+
+/* =========================
+   キノポン
+   地面からニョキッ！
+========================= */
+
+.character-image.bounce {
+
+    animation:
+        characterAppear 0.5s ease,
+        bounceCharacter 1.8s ease-in-out infinite;
+
+}
+
+@keyframes bounceCharacter {
+
+    0%,
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            scaleY(1);
+
+    }
+
+    30% {
+
+        transform:
+            translate(-50%, -50%)
+            translateY(20px)
+            scaleY(0.5);
+
+    }
+
+    60% {
+
+        transform:
+            translate(-50%, -50%)
+            translateY(-20px)
+            scaleY(1.4);
+
+    }
+
+}
+.character-image {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+}
+
+/* =========================
+   マンドレイク
+   地面から飛び出す！
+========================= */
+
+.character-image.sprout {
+
+    animation:
+        characterAppear 0.5s ease,
+        sproutCharacter 2s ease-in-out infinite;
+
+}
+
+@keyframes sproutCharacter {
+
+    0%,
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            translateY(25px)
+            scale(0.9);
+
+    }
+
+    35% {
+
+        transform:
+            translate(-50%, -50%)
+            translateY(25px)
+            scale(0.9, 0.75);
+
+    }
+
+    55% {
+
+        transform:
+            translate(-50%, -50%)
+            translateY(-35px)
+            scale(1.05, 1.15);
+
+    }
+
+    75% {
+
+        transform:
+            translate(-50%, -50%)
+            translateY(-5px)
+            scale(1);
+
+    }
+
+}
+/* =========================
+   キャラクター発見エフェクト
+========================= */
+
+.spawn-character.character-found {
+
+    animation:
+        foundEffect 0.7s ease-out forwards;
+
+}
+
+
+@keyframes foundEffect {
+
+    0% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+
+        opacity: 1;
+
+    }
+
+
+    50% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.4);
+
+        opacity: 1;
+
+    }
+
+
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(2);
+
+        opacity: 0;
+
+    }
+
+}
+/* =========================
+   探索スポット選択画面
+========================= */
+
+.spot-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 300;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #7dd3fc 0%,
+            #bae6fd 45%,
+            #bbf7d0 100%
+        );
+
+    overflow-y: auto;
+
+}
+
+
+/* スポット選択カード */
+
+.spot-card {
+
+    width: min(92%, 700px);
+
+    padding: 30px 25px;
+
+    background:
+        rgba(255, 255, 255, 0.95);
+
+    border-radius: 30px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.25);
+
+    animation:
+        spotCardAppear 0.6s ease;
+
+}
+
+
+/* ラベル */
+
+.spot-label {
+
+    color: #6366f1;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 10px;
+
+}
+
+
+/* タイトル */
+
+.spot-card h2 {
+
+    margin: 0 0 10px;
+
+    color: #14532d;
+
+    font-size: clamp(24px, 5vw, 36px);
+
+    text-shadow: none;
+
+}
+
+
+/* 説明 */
+
+.spot-description {
+
+    color: #374151;
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* スポット一覧 */
+
+.spot-list {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 15px;
+
+}
+
+
+/* スポットボタン */
+
+.spot-button {
+
+    border: none;
+
+    padding: 18px 15px;
+
+    border-radius: 22px;
+
+    background: white;
+
+    cursor: pointer;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 5px;
+
+    box-shadow:
+        0 6px 15px rgba(0, 0, 0, 0.12);
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+
+}
+
+
+/* ホバー */
+
+.spot-button:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.18);
+
+}
+
+
+/* 押した瞬間 */
+
+.spot-button:active {
+
+    transform: translateY(2px);
+
+}
+
+
+/* アイコン */
+
+.spot-icon {
+
+    font-size: 42px;
+
+    line-height: 1;
+
+}
+
+
+/* スポット名 */
+
+.spot-name {
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color: #14532d;
+
+}
+
+
+/* 説明 */
+
+.spot-detail {
+
+    font-size: 13px;
+
+    color: #6b7280;
+
+}
+
+
+/* =========================
+   スポットごとのアクセント
+========================= */
+
+.spot-button.nature {
+
+    border-top: 6px solid #22c55e;
+
+}
+
+
+.spot-button.rose {
+
+    border-top: 6px solid #f43f5e;
+
+}
+
+
+.spot-button.water {
+
+    border-top: 6px solid #38bdf8;
+
+}
+
+
+.spot-button.sport {
+
+    border-top: 6px solid #f59e0b;
+
+}
+
+
+.spot-button.secret {
+
+    border-top: 6px solid #8b5cf6;
+
+}
+
+
+/* 登場アニメーション */
+
+@keyframes spotCardAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0.9)
+            translateY(30px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================
+   スマホ対応
+========================= */
+
+@media (max-width: 600px) {
+
+    .spot-card {
+
+        padding: 25px 15px;
+
+    }
+
+
+    .spot-list {
+
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+
+    }
+
+
+    .spot-button {
+
+        padding: 14px;
+
+    }
+
+
+    .spot-icon {
+
+        font-size: 35px;
+
+    }
+
+
+    .spot-name {
+
+        font-size: 18px;
+
+    }
+
+}
+/* =========================
+   共通TOPボタン
+========================= */
+
+.global-top-button {
+
+    position: fixed;
+
+    top: 15px;
+
+    left: 15px;
+
+    z-index: 1000;
+
+    display: none;
+
+    border: none;
+
+    padding: 10px 16px;
+
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    color: #14532d;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 12px
+        rgba(0, 0, 0, 0.2);
+
+}
+
+
+.global-top-button:hover {
+
+    transform: translateY(-2px);
+
+}
+/* =========================
+   コンプリート画面
+========================= */
+
+.complete-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 800;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        radial-gradient(
+            circle,
+            #fef08a,
+            #86efac,
+            #3b82f6
+        );
+
+}
+
+
+.complete-card {
+
+    width: min(90%, 430px);
+
+    padding: 40px 25px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-radius: 35px;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, 0.3);
+
+    animation:
+        completeAppear
+        0.7s ease;
+
+}
+
+
+.complete-effect {
+
+    font-size: 38px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.complete-card h2 {
+
+    color: #f59e0b;
+
+    font-size: 36px;
+
+    text-shadow: none;
+
+}
+
+
+.complete-text {
+
+    margin-top: 20px;
+
+    color: #14532d;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+}
+
+
+.complete-subtext {
+
+    margin: 15px 0 25px;
+
+    color: #374151;
+
+    line-height: 1.8;
+
+}
+
+
+.complete-button {
+
+    width: 100%;
+
+    margin-top: 10px;
+
+    border: none;
+
+    padding: 15px;
+
+    border-radius: 30px;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #22c55e,
+            #15803d
+        );
+
+}
+
+
+.complete-top-button {
+
+    background:
+        linear-gradient(
+            135deg,
+            #6366f1,
+            #4338ca
+        );
+
+}
+
+
+@keyframes completeAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0.6)
+            rotate(-5deg);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            rotate(0);
+
+    }
+
+}
+/* =========================
+   スマホ画面の重なり調整
+========================= */
+
+@media (max-width: 600px) {
+
+    /* TOPボタンのスペースを確保 */
+    .explore-header,
+    .collection-header {
+
+        padding-left: 90px;
+
+    }
+
+    .global-top-button {
+
+        top: 10px;
+
+        left: 10px;
+
+        padding: 8px 12px;
+
+        font-size: 13px;
+
+    }
+
+}
+@media (max-width: 600px) {
+
+    h1 {
+
+        font-size: 36px;
+
+        line-height: 1.15;
+
+    }
+
+    h1 span {
+
+        font-size: 32px;
+
+    }
+
+}
+/* 探索画面の重複メッセージを非表示 */
+.explore-message {
+    display: none;
+}

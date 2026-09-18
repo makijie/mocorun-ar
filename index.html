@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>公園ARキャラクターコレクション</title>
+
+    <!-- CSSを読み込む -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- 3Dモデル表示 -->
+    <script
+        type="module"
+        src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.1.0/model-viewer.min.js">
+    </script>
+
+</head>
+
+
+<body>
+    <!-- どの画面からでもTOPへ戻る -->
+    <button id="globalTopButton" class="global-top-button">
+        🏠 TOP
+    </button>
+    <!-- タイトル画面全体 -->
+    <main class="title-screen">
+
+        <!-- キラキラ演出 -->
+        <div class="sparkle sparkle1">✨</div>
+        <div class="sparkle sparkle2">⭐</div>
+        <div class="sparkle sparkle3">✨</div>
+        <div class="sparkle sparkle4">🌟</div>
+
+
+        <!-- 上部メッセージ -->
+        <div class="secret-message">
+            🌳 この公園には、まだ見ぬ仲間たちがいる…
+        </div>
+
+
+        <!-- ゲームタイトル -->
+        <section class="title-area">
+
+            <p class="small-title">
+                🌿 ふしぎな世界を探検しよう 🌿
+            </p>
+
+            <h1>
+                公園AR<br>
+                <span class="collection-title">
+                    キャラクター<br>
+                    コレクション
+                </span>
+            </h1>
+
+            <h2>
+                〜見えない世界の住人たち〜
+            </h2>
+
+        </section>
+
+
+        <!-- モコルン表示エリア -->
+        <section class="character-area">
+
+            <div class="mocorun-glow"></div>
+
+<div class="mocorun">
+    <img src="images/characters/mocorun.png"
+         alt="モコルン">
+</div>
+            <p class="character-message">
+                「ぼくたちを見つけられるかな？」
+            </p>
+
+        </section>
+
+
+        <!-- メニューボタン -->
+        <section class="menu">
+
+            <button id="startButton" class="game-button start-button">
+                🔮 はじめる
+            </button>
+
+            <button id="collectionButton" class="game-button">
+                📖 図鑑
+            </button>
+
+
+        </section>
+
+
+        <!-- 下部メッセージ -->
+        <footer>
+
+            <p>
+                📱 スマホでAR体験
+            </p>
+
+            <p>
+                🥽 Quest 3でも遊べる！
+            </p>
+
+        </footer>
+
+    </main>
+    <!-- =========================
+     オープニング画面
+========================= -->
+
+    <section id="openingScreen" class="opening-screen">
+
+        <div class="opening-card">
+
+            <p class="opening-label">
+                🌙 PROLOGUE
+            </p>
+
+            <h2>
+                公園には、<br>
+                もうひとつの世界がある。
+            </h2>
+
+            <div class="opening-character">
+                <img src="images/characters/mocorun.png"
+                     alt="モコルン">
+            </div>
+
+            <p class="opening-text">
+                いつもの公園。<br>
+                でも、誰も気づいていない場所に<br>
+                不思議な仲間たちが暮らしています。
+            </p>
+
+            <p class="opening-text">
+                草むら、木の陰、ベンチの下……。<br>
+                よく目をこらしてみると、
+                <br>
+                何かが見えるかもしれません。
+            </p>
+
+            <div class="scope-message">
+                🔮 幻想スコープを手に入れた！
+            </div>
+
+            <button id="exploreButton" class="game-button start-button">
+                🔍 探索をはじめる
+            </button>
+
+        </div>
+
+    </section>
+<!-- =========================
+     探索スポット選択画面
+========================= -->
+
+<section id="spotScreen" class="spot-screen">
+
+    <div class="spot-card">
+
+        <div class="spot-label">
+            TODAY'S SPOT
+        </div>
+
+        <h2>
+            🌳 今日の探索スポットを選ぼう！
+        </h2>
+
+        <p class="spot-description">
+            公園のいろいろな場所を探索して<br>
+            不思議なキャラクターを見つけよう！
+        </p>
+
+        <div class="spot-list">
+
+            <button class="spot-button nature" data-spot="nature">
+                <span class="spot-icon">🌳</span>
+                <span class="spot-name">木・草エリア</span>
+                <span class="spot-detail">
+                    木陰や草むらを探してみよう
+                </span>
+            </button>
+
+            <button class="spot-button rose" data-spot="rose">
+                <span class="spot-icon">🌸</span>
+                <span class="spot-name">花エリア</span>
+                <span class="spot-detail">
+                    花や植え込みの近くを探そう
+                </span>
+            </button>
+
+            <button class="spot-button water" data-spot="water">
+                <span class="spot-icon">💧</span>
+                <span class="spot-name">水辺エリア</span>
+                <span class="spot-detail">
+                    池・小川・噴水の近くを探そう
+                </span>
+            </button>
+
+            <button class="spot-button sport" data-spot="sport">
+                <span class="spot-icon">🛝</span>
+                <span class="spot-name">広場・遊具エリア</span>
+                <span class="spot-detail">
+                    広場や遊具の近くを探してみよう
+                </span>
+            </button>
+
+            <button class="spot-button secret" data-spot="secret">
+                <span class="spot-icon">⭐</span>
+                <span class="spot-name">ふしぎスポット</span>
+                <span class="spot-detail">
+                    ちょっと気になる場所を探索！
+                </span>
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     公園探索画面
+========================= -->
+
+<section id="exploreScreen" class="explore-screen">
+
+    <!-- 上部メニュー -->
+    <header class="explore-header">
+
+        <div class="scope-status">
+            🔮 幻想スコープ
+        </div>
+
+        <button id="collectionTopButton" class="icon-button">
+            📖 図鑑
+        </button>
+
+    </header>
+
+
+    <!-- 公園エリア -->
+    <main class="park-area">
+
+    <!-- スマホ・PCカメラ -->
+    <video
+        id="cameraVideo"
+        class="camera-video"
+        autoplay
+        playsinline
+        muted>
+    </video>
+    <!-- 3D案内役モコルン -->
+<div id="mocorunGuide" class="mocorun-guide">
+
+    <model-viewer
+        id="mocorun3D"
+        class="mocorun-3d"
+        src="models/mocorun.glb"
+        alt="3Dモコルン"
+        camera-controls
+        interaction-prompt="none"
+        shadow-intensity="1">
+    </model-viewer>
+
+    <div id="mocorunSpeech" class="mocorun-speech">
+        ぼくと一緒に探してみよう！
+    </div>
+
+</div>
+        
+
+        <!-- 発見エリア（次回キャラを出します） -->
+        <div id="characterSpawnArea"></div>
+
+
+        <!-- 探索ヒント -->
+        <div class="explore-message">
+
+            🔍 周りをよく探してみよう！
+
+        </div>
+
+    </main>
+
+
+    <!-- 下部操作 -->
+    <footer class="explore-footer">
+
+        <button id="searchButton" class="search-button">
+
+            🔍 探索する
+
+        </button>
+
+    </footer>
+
+</section>
+
+<!-- =========================
+     キャラクター図鑑
+========================= -->
+
+<section id="collectionScreen" class="collection-screen">
+
+    <!-- 上部 -->
+    <header class="collection-header">
+
+        <h2>📖 不思議生き物図鑑</h2>
+
+        <button id="closeCollectionButton" class="close-button">
+            ✕ 戻る
+        </button>
+
+    </header>
+
+
+    <!-- 説明 -->
+    <div class="collection-info">
+
+        <p>
+            見つけた不思議な仲間たちを確認しよう！
+        </p>
+
+        <p id="collectionCount">
+            発見数：0 / 5
+        </p>
+
+    </div>
+
+
+    <!-- 図鑑リスト -->
+    <div id="collectionList" class="collection-list">
+
+    </div>
+
+</section>
+<!-- =========================
+     キャラクター発見画面
+========================= -->
+
+<section id="discoveryScreen" class="discovery-screen">
+
+    <div class="discovery-effect">
+
+        ✨ ✨ ✨ ✨ ✨
+
+    </div>
+
+    <div class="discovery-card">
+
+        <div class="discovery-title">
+
+            🎉 発見！！
+
+        </div>
+
+        <div class="discovery-image">
+
+            <img
+                id="discoveryImage"
+                src=""
+                alt=""
+            >
+
+        </div>
+
+        <h2 id="discoveryName">
+
+            キャラクター名
+
+        </h2>
+
+        <p id="discoveryRarity">
+
+            ⭐ レア度
+
+        </p>
+
+        <p
+            id="discoveryMessage"
+            class="discovery-message"
+        >
+        📖 図鑑に登録されました！
+        </p>
+
+        <button
+            id="discoveryOkButton"
+            class="discovery-ok-button"
+        >
+
+            冒険を続ける！
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+
+<!-- =========================
+     コンプリート画面
+========================= -->
+
+<section id="completeScreen" class="complete-screen">
+
+    <div class="complete-card">
+
+        <div class="complete-effect">
+            ✨ 🌟 ✨
+        </div>
+
+        <h2>
+            🎉 コンプリート！
+        </h2>
+
+        <p class="complete-text">
+            すべての仲間を見つけました！
+        </p>
+
+        <p class="complete-subtext">
+            モコルンと一緒に<br>
+            不思議な世界を見つけたね！
+        </p>
+
+        <button
+            id="completeContinueButton"
+            class="complete-button"
+        >
+            🌳 まだ探索する
+        </button>
+
+        <button
+            id="completeTopButton"
+            class="complete-button complete-top-button"
+        >
+            🏠 TOPへ戻る
+        </button>
+
+    </div>
+
+</section>
+<script src="script.js"></script>
+</body>
+
+</html>
