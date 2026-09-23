@@ -1280,12 +1280,21 @@ footer {
 
     align-items: center;
 
-    padding: 20px;
+    gap: 15px;
 
-    background: rgba(255, 255, 255, 0.9);
+    padding: 16px 20px;
+
+    background: rgba(255, 255, 255, 0.95);
 
     box-shadow:
         0 3px 10px rgba(0, 0, 0, 0.1);
+
+    /* スクロールしても上に固定 */
+    position: sticky;
+
+    top: 0;
+
+    z-index: 10;
 
 }
 
@@ -1293,6 +1302,8 @@ footer {
 .collection-header h2 {
 
     color: #14532d;
+
+    font-size: 24px;
 
 }
 
@@ -1315,6 +1326,8 @@ footer {
 
     cursor: pointer;
 
+    flex-shrink: 0;
+
 }
 
 
@@ -1326,11 +1339,13 @@ footer {
 
     text-align: center;
 
-    padding: 20px;
+    padding: 18px 15px 8px;
 
     color: #14532d;
 
     font-weight: bold;
+
+    font-size: 18px;
 
 }
 
@@ -1346,9 +1361,9 @@ footer {
     grid-template-columns:
         repeat(auto-fit, minmax(160px, 1fr));
 
-    gap: 20px;
+    gap: 18px;
 
-    padding: 20px;
+    padding: 18px 20px 30px;
 
     width: min(100%, 1000px);
 
@@ -1363,30 +1378,49 @@ footer {
 
 .collection-card {
 
+    min-height: 210px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
     background: white;
 
-    border-radius: 25px;
+    border-radius: 22px;
 
-    padding: 15px;
+    padding: 14px 10px;
 
     text-align: center;
 
     box-shadow:
-        0 8px 20px rgba(0, 0, 0, 0.12);
+        0 6px 16px rgba(0, 0, 0, 0.12);
 
-    transition: transform 0.2s;
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
 
 }
 
+
+/* PCではカードにカーソルを置くと少し浮く */
 
 .collection-card:hover {
 
     transform: translateY(-5px);
 
+    box-shadow:
+        0 10px 22px rgba(0, 0, 0, 0.16);
+
 }
 
 
-/* 発見済み画像 */
+/* =========================
+   発見済み画像
+========================= */
 
 .collection-card img {
 
@@ -1396,45 +1430,166 @@ footer {
 
     object-fit: contain;
 
+    display: block;
+
+    margin: 0 auto;
+
 }
 
 
-/* 未発見 */
+/* =========================
+   未発見カード
+========================= */
 
 .collection-card.locked {
 
-    background: #e5e7eb;
+    background: rgba(229, 231, 235, 0.95);
 
 }
 
 
 .locked-character {
 
-    font-size: 70px;
+    width: 120px;
+
+    height: 120px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 65px;
 
     filter: grayscale(1);
 
 }
 
 
-/* キャラクター名 */
+/* =========================
+   キャラクター名
+========================= */
 
 .collection-name {
 
-    margin-top: 10px;
+    margin-top: 8px;
 
     font-weight: bold;
 
     color: #14532d;
 
+    line-height: 1.4;
+
 }
 
 
-/* 未発見の名前 */
+/* =========================
+   未発見の名前
+========================= */
 
 .collection-unknown {
 
+    margin-top: 8px;
+
     color: #6b7280;
+
+    font-weight: bold;
+
+    line-height: 1.4;
+
+}
+
+
+/* =========================
+   スマホ用
+========================= */
+
+@media screen and (max-width: 600px) {
+
+    .collection-header {
+
+        padding: 12px 14px;
+
+    }
+
+
+    .collection-header h2 {
+
+        font-size: 19px;
+
+    }
+
+
+    .close-button {
+
+        padding: 8px 14px;
+
+        font-size: 14px;
+
+    }
+
+
+    .collection-info {
+
+        padding: 14px 10px 6px;
+
+        font-size: 16px;
+
+    }
+
+
+    /* スマホでは必ず2列 */
+
+    .collection-list {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 12px;
+
+        padding: 12px 12px 25px;
+
+    }
+
+
+    .collection-card {
+
+        min-height: 175px;
+
+        border-radius: 18px;
+
+        padding: 10px 6px;
+
+    }
+
+
+    .collection-card img {
+
+        width: 95px;
+
+        height: 95px;
+
+    }
+
+
+    .locked-character {
+
+        width: 95px;
+
+        height: 95px;
+
+        font-size: 52px;
+
+    }
+
+
+    .collection-name,
+    .collection-unknown {
+
+        font-size: 13px;
+
+    }
 
 }
 /* =========================
@@ -1984,6 +2139,208 @@ footer {
             translate(-50%, -50%)
             translateY(-5px)
             scale(1);
+
+    }
+
+}
+/* =========================
+   ゆらゆら揺れる
+   ツタッチ・ツツジー・コケモン
+========================= */
+
+.character-image.sway {
+
+    animation:
+        characterAppear 0.5s ease,
+        swayCharacter 1.6s ease-in-out infinite;
+
+}
+
+@keyframes swayCharacter {
+
+    0%,
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            translateX(-12px)
+            rotate(-12deg);
+
+    }
+
+    50% {
+
+        transform:
+            translate(-50%, -50%)
+            translateX(12px)
+            rotate(12deg);
+
+    }
+
+}
+
+
+/* =========================
+   ふわふわ浮く
+   ポポロン・アジチャイ・エルフ
+========================= */
+
+.character-image.float {
+
+    animation:
+        characterAppear 0.5s ease,
+        floatCharacter 1.8s ease-in-out infinite;
+
+}
+
+@keyframes floatCharacter {
+
+    0%,
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            translateY(12px)
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            translate(-50%, -50%)
+            translateY(-35px)
+            scale(1.05);
+
+    }
+
+}
+
+
+/* =========================
+   左右に歩く
+   チビタン
+========================= */
+
+.character-image.walk {
+
+    animation:
+        characterAppear 0.5s ease,
+        walkCharacter 2s ease-in-out infinite;
+
+}
+
+@keyframes walkCharacter {
+
+    0% {
+
+        transform:
+            translate(-50%, -50%)
+            translateX(-35px)
+            rotate(-5deg);
+
+    }
+
+    25% {
+
+        transform:
+            translate(-50%, -50%)
+            translateX(-15px)
+            translateY(-8px)
+            rotate(5deg);
+
+    }
+
+    50% {
+
+        transform:
+            translate(-50%, -50%)
+            translateX(35px)
+            rotate(-5deg);
+
+    }
+
+    75% {
+
+        transform:
+            translate(-50%, -50%)
+            translateX(15px)
+            translateY(-8px)
+            rotate(5deg);
+
+    }
+
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            translateX(-35px)
+            rotate(-5deg);
+
+    }
+
+}
+
+
+/* =========================
+   落ち葉のように回る
+   カレッチ
+========================= */
+
+.character-image.spin {
+
+    animation:
+        characterAppear 0.5s ease,
+        spinCharacter 2.2s ease-in-out infinite;
+
+}
+
+@keyframes spinCharacter {
+
+    0% {
+
+        transform:
+            translate(-50%, -50%)
+            translateY(10px)
+            rotate(-15deg);
+
+    }
+
+    25% {
+
+        transform:
+            translate(-50%, -50%)
+            translateX(20px)
+            translateY(-25px)
+            rotate(15deg);
+
+    }
+
+    50% {
+
+        transform:
+            translate(-50%, -50%)
+            translateY(-40px)
+            rotate(-15deg);
+
+    }
+
+    75% {
+
+        transform:
+            translate(-50%, -50%)
+            translateX(-20px)
+            translateY(-20px)
+            rotate(15deg);
+
+    }
+
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            translateY(10px)
+            rotate(-15deg);
 
     }
 

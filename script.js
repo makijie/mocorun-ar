@@ -103,18 +103,56 @@ const completeTopButton =
 
 const characters = [
 
+    // ==============================
+    // 木・草エリア
+    // ==============================
+
     {
         id: 1,
-        name: "モコルン",
-        image: "images/characters/mocorun.png",
-        rarity: "🌟 案内役",
-        probability: 0,
-        animation: "jump",
-        isGuide: true
+        name: "クサポン",
+        image: "images/characters/kusapon.png",
+        rarity: "⭐ ノーマル",
+        probability: 35,
+        animation: "bounce",
+        isGuide: false
     },
 
     {
         id: 2,
+        name: "グリン",
+        image: "images/characters/gurin.png",
+        rarity: "⭐ ノーマル",
+        probability: 35,
+        animation: "jump",
+        isGuide: false
+    },
+
+    {
+        id: 3,
+        name: "ツタッチ",
+        image: "images/characters/tsutacchi.png",
+        rarity: "⭐⭐ レア",
+        probability: 20,
+        animation: "sway",
+        isGuide: false
+    },
+
+    {
+        id: 4,
+        name: "マンドレイク",
+        image: "images/characters/mandrake.png",
+        rarity: "⭐⭐⭐ スーパーレア",
+        probability: 10,
+        animation: "sprout",
+        isGuide: false
+    },
+
+    // ==============================
+    // 花エリア
+    // ==============================
+
+    {
+        id: 5,
         name: "キノポン",
         image: "images/characters/kinopon.png",
         rarity: "⭐ ノーマル",
@@ -124,126 +162,247 @@ const characters = [
     },
 
     {
-        id: 3,
+        id: 6,
+        name: "ポポロン",
+        image: "images/characters/poporon.png",
+        rarity: "⭐ ノーマル",
+        probability: 35,
+        animation: "float",
+        isGuide: false
+    },
+
+    {
+        id: 7,
+        name: "ツツジー",
+        image: "images/characters/tsutsuji.png",
+        rarity: "⭐⭐ レア",
+        probability: 20,
+        animation: "sway",
+        isGuide: false
+    },
+
+    {
+        id: 8,
+        name: "アジチャイ",
+        image: "images/characters/ajichai.png",
+        rarity: "⭐⭐⭐ スーパーレア",
+        probability: 10,
+        animation: "float",
+        isGuide: false
+    },
+
+    // ==============================
+    // 水辺エリア
+    // ==============================
+
+    {
+        id: 9,
         name: "ポヨン",
         image: "images/characters/poyon.png",
-        rarity: "⭐⭐ レア",
-        probability: 30,
+        rarity: "⭐ ノーマル",
+        probability: 35,
         animation: "ghost",
         isGuide: false
     },
 
     {
-        id: 4,
-        name: "コモリン",
-        image: "images/characters/komorin.png",
+        id: 10,
+        name: "チビタン",
+        image: "images/characters/chibitan.png",
+        rarity: "⭐ ノーマル",
+        probability: 35,
+        animation: "walk",
+        isGuide: false
+    },
+
+    {
+        id: 11,
+        name: "コケモン",
+        image: "images/characters/kokemon.png",
+        rarity: "⭐⭐ レア",
+        probability: 20,
+        animation: "sway",
+        isGuide: false
+    },
+
+    {
+        id: 12,
+        name: "カッパチ",
+        image: "images/characters/kappachi.png",
         rarity: "⭐⭐⭐ スーパーレア",
+        probability: 10,
+        animation: "jump",
+        isGuide: false
+    },
+
+    // ==============================
+    // 広場・遊具エリア
+    // ==============================
+
+    {
+        id: 13,
+        name: "テントン",
+        image: "images/characters/tenton.png",
+        rarity: "⭐ ノーマル",
+        probability: 35,
+        animation: "fly",
+        isGuide: false
+    },
+
+    {
+        id: 14,
+        name: "イシゴン",
+        image: "images/characters/ishigon.png",
+        rarity: "⭐ ノーマル",
+        probability: 35,
+        animation: "bounce",
+        isGuide: false
+    },
+
+    {
+        id: 15,
+        name: "カゼマル",
+        image: "images/characters/kazemaru.png",
+        rarity: "⭐⭐ レア",
         probability: 20,
         animation: "fly",
         isGuide: false
     },
 
     {
-        id: 5,
-        name: "マンドレイク",
-        image: "images/characters/mandrake.png",
+        id: 16,
+        name: "カレッチ",
+        image: "images/characters/karecchi.png",
+        rarity: "⭐⭐⭐ スーパーレア",
+        probability: 10,
+        animation: "spin",
+        isGuide: false
+    },
+
+    // ==============================
+    // ふしぎスポット
+    // ==============================
+
+    {
+        id: 17,
+        name: "ふわふわおばけ",
+        image: "images/characters/fuwafuwa_obake.png",
+        rarity: "⭐ ノーマル",
+        probability: 50,
+        animation: "ghost",
+        isGuide: false
+    },
+
+    {
+        id: 18,
+        name: "一つ目小僧",
+        image: "images/characters/hitotsume_kozo.png",
+        rarity: "⭐⭐ レア",
+        probability: 30,
+        animation: "jump",
+        isGuide: false
+    },
+
+    {
+        id: 19,
+        name: "エルフ",
+        image: "images/characters/elf.png",
         rarity: "⭐⭐⭐ スーパーレア",
         probability: 15,
-        animation: "sprout",
+        animation: "float",
+        isGuide: false
+    },
+
+    {
+        id: 20,
+        name: "フェニックス",
+        image: "images/characters/phoenix.png",
+        rarity: "⭐⭐⭐⭐ 伝説級",
+        probability: 5,
+        animation: "fly",
         isGuide: false
     }
 
 ];
-
 // ==============================
 // 発見済みデータ
+// 20体版なので保存データを新しくする
 // ==============================
+
+const STORAGE_KEY = "discoveredCharactersV2";
 
 let discoveredCharacters =
     JSON.parse(
-        localStorage.getItem("discoveredCharacters")
+        localStorage.getItem(STORAGE_KEY)
     ) || [];
+
+
 // ==============================
 // 現在選んでいる探索スポット
 // ==============================
 
 let currentSpot = "";
 
+
+// ==============================
 // 探索中かどうか
+// ==============================
+
 let isSearching = false;
-
-// ==============================
-// モコルンは案内役なので最初から図鑑登録
-// ==============================
-
-if (!discoveredCharacters.includes(1)) {
-
-    discoveredCharacters.push(1);
-
-    localStorage.setItem(
-        "discoveredCharacters",
-        JSON.stringify(discoveredCharacters)
-    );
-
-}
 
 
 // ==============================
 // GETできるキャラクター
-// モコルン以外の4体
+// 全20体
+// モコルンは案内役なのでここには含めない
 // ==============================
 
-const catchableCharacters =
-    characters.filter(function (character) {
+const catchableCharacters = characters;
 
-        return character.isGuide === false;
-
-    });
-
-    // ==============================
+// ==============================
 // スポットごとの出現確率
 // ==============================
 
 const spotProbabilities = {
 
-    // 自然エリア
+    // 木・草エリア
     nature: {
-        2: 45,   // キノポン
-        3: 15,   // ポヨン
-        4: 15,   // コモリン
-        5: 25    // マンドレイク
+        1: 35,   // クサポン
+        2: 35,   // グリン
+        3: 20,   // ツタッチ
+        4: 10    // マンドレイク
     },
 
-    // 花のある場所
+    // 花エリア
     rose: {
-        2: 25,
-        3: 20,
-        4: 15,
-        5: 40
+        5: 35,   // キノポン
+        6: 35,   // ポポロン
+        7: 20,   // ツツジー
+        8: 10    // アジチャイ
     },
 
-    // 水辺
+    // 水辺エリア
     water: {
-        2: 10,
-        3: 60,
-        4: 20,
-        5: 10
+        9: 35,   // ポヨン
+        10: 35,  // チビタン
+        11: 20,  // コケモン
+        12: 10   // カッパチ
     },
 
-    // 遊び・運動エリア
+    // 広場・遊具エリア
     sport: {
-        2: 35,
-        3: 25,
-        4: 25,
-        5: 15
+        13: 35,  // テントン
+        14: 35,  // イシゴン
+        15: 20,  // カゼマル
+        16: 10   // カレッチ
     },
 
-    // 秘密スポット
+    // ふしぎスポット
     secret: {
-        2: 10,
-        3: 20,
-        4: 35,
-        5: 35
+        17: 50,  // ふわふわおばけ
+        18: 30,  // 一つ目小僧
+        19: 15,  // エルフ
+        20: 5    // フェニックス
     }
 
 };
@@ -435,57 +594,86 @@ if (mocorunAudio) {
 
 function spawnCharacter() {
 
-    // ランダムにキャラクターを選ぶ
+    // 選んだスポットの確率を取得
+    const selectedProbabilities =
+        spotProbabilities[currentSpot];
 
+    // スポットが選ばれていない場合は中止
+    if (!selectedProbabilities) {
+
+        console.log(
+            "探索エリアが選択されていません。"
+        );
+
+        return;
+
+    }
+
+
+    // 0〜100の乱数
     const randomNumber =
         Math.random() * 100;
 
     let cumulativeProbability = 0;
 
-    let randomCharacter =
-    catchableCharacters[0];
+    let randomCharacter = null;
 
 
-// 選んだスポットの確率を取得
-const selectedProbabilities =
-    spotProbabilities[currentSpot];
+    // ==============================
+    // 選択したエリアの4体だけで抽選
+    // ==============================
+
+    for (const character of catchableCharacters) {
+
+        // このエリアにいないキャラは無視
+        if (
+            selectedProbabilities[character.id]
+            === undefined
+        ) {
+
+            continue;
+
+        }
 
 
-// スポットごとの確率で抽選
-for (const character of catchableCharacters) {
-
-    let probability =
-        character.probability;
-
-
-    // スポット別の設定がある場合
-    if (
-        selectedProbabilities &&
-        selectedProbabilities[character.id] !== undefined
-    ) {
-
-        probability =
+        const probability =
             selectedProbabilities[character.id];
 
+
+        cumulativeProbability +=
+            probability;
+
+
+        if (
+            randomNumber <
+            cumulativeProbability
+        ) {
+
+            randomCharacter =
+                character;
+
+            break;
+
+        }
+
     }
 
 
-    cumulativeProbability +=
-        probability;
+    // 念のためキャラが選ばれなかった場合
+    if (!randomCharacter) {
 
+        console.log(
+            "キャラクター抽選に失敗しました。"
+        );
 
-    if (randomNumber < cumulativeProbability) {
-
-        randomCharacter =
-            character;
-
-        break;
+        return;
 
     }
 
-}
 
+    // ==============================
     // キャラクター全体
+    // ==============================
 
     const characterElement =
         document.createElement("div");
@@ -494,7 +682,9 @@ for (const character of catchableCharacters) {
         "spawn-character";
 
 
+    // ==============================
     // キャラクター画像
+    // ==============================
 
     const characterImage =
         document.createElement("img");
@@ -505,21 +695,21 @@ for (const character of catchableCharacters) {
     characterImage.alt =
         randomCharacter.name;
 
-    // ★ キャラクターごとの動きを追加
 
+    // キャラクターごとの動き
     characterImage.className =
         "character-image " +
         randomCharacter.animation;
-  
 
-    // キャラクター画像を追加
 
     characterElement.appendChild(
         characterImage
     );
 
 
+    // ==============================
     // ランダムな位置
+    // ==============================
 
     const randomLeft =
         Math.random() * 40 + 30;
@@ -535,44 +725,47 @@ for (const character of catchableCharacters) {
         randomTop + "%";
 
 
+    // ==============================
     // 画面に追加
+    // ==============================
 
     characterSpawnArea.appendChild(
         characterElement
     );
 
 
+    // ==============================
     // クリックで発見
+    // ==============================
 
     characterElement.addEventListener(
-    "click",
-    function () {
+        "click",
+        function () {
 
-        // クリックされたキャラクターを一時的に動かなくする
-        characterImage.style.animation =
-            "none";
-
-
-        // 発見エフェクトを追加
-        characterElement.classList.add(
-            "character-found"
-        );
+            // キャラクターの動きを止める
+            characterImage.style.animation =
+                "none";
 
 
-        // 少し待ってから発見画面へ
-        setTimeout(function () {
-
-            discoverCharacter(
-                randomCharacter
+            // 発見エフェクト
+            characterElement.classList.add(
+                "character-found"
             );
 
-        }, 700);
 
-    }
-);
+            // 少し待って発見画面へ
+            setTimeout(function () {
+
+                discoverCharacter(
+                    randomCharacter
+                );
+
+            }, 700);
+
+        }
+    );
 
 }
-
 // ==============================
 // キャラクター発見
 // ==============================
@@ -594,11 +787,9 @@ if (isFirstDiscovery) {
     );
 
     localStorage.setItem(
-        "discoveredCharacters",
-        JSON.stringify(
-            discoveredCharacters
-        )
-    );
+    STORAGE_KEY,
+    JSON.stringify(discoveredCharacters)
+   );
 
 }
 
