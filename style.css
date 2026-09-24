@@ -832,7 +832,8 @@ footer {
 }
 
 
-.mocorun-3d{
+.mocorun-3d {
+
     width: 180px;
     height: 180px;
 
@@ -840,13 +841,26 @@ footer {
 
     --poster-color: transparent;
 
+    --progress-bar-height: 0px;
+    --progress-bar-color: transparent;
+
     border: none;
-
     outline: none;
-
     box-shadow: none;
 
     pointer-events: auto;
+
+    /* 読み込み中は非表示 */
+    opacity: 0;
+
+}
+
+
+/* 3Dモデルの読み込み完了後 */
+.mocorun-3d.model-loaded {
+
+    opacity: 1;
+
 }
 
 
