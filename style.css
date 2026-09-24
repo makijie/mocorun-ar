@@ -832,8 +832,7 @@ footer {
 }
 
 
-.mocorun-3d {
-
+.mocorun-3d{
     width: 180px;
     height: 180px;
 
@@ -841,8 +840,13 @@ footer {
 
     --poster-color: transparent;
 
-    pointer-events: auto;
+    border: none;
 
+    outline: none;
+
+    box-shadow: none;
+
+    pointer-events: auto;
 }
 
 
