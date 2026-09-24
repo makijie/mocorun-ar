@@ -561,7 +561,7 @@ searchButton.addEventListener("click", function () {
     // キャラクター発見
     setTimeout(function () {
 
-        spawnCharacter();
+        spawnCharacter(function() {
 
     // モコルンを正面向きに戻す
     mocorun3D.setAttribute(
@@ -609,15 +609,15 @@ if (mocorunAudio) {
 
         searchButton.textContent =
             "🔍 もう一度探索する";
-
-    }, searchTime);
-
+    });
+}, searchTime);
 });
+
 // ==============================
 // キャラクター出現
 // ==============================
 
-function spawnCharacter() {
+function spawnCharacter(onReady) {
 
     // 選んだスポットの確率を取得
     const selectedProbabilities =
@@ -714,32 +714,41 @@ function spawnCharacter() {
     const characterImage =
         document.createElement("img");
 
-    characterImage.src =
-        randomCharacter.image;
-
     characterImage.alt =
-        randomCharacter.name;
+    randomCharacter.name;
 
 
-    // キャラクターごとの動き
-    characterImage.className =
-        "character-image " +
-        randomCharacter.animation;
+// キャラクターごとの動き
+characterImage.className =
+    "character-image " +
+    randomCharacter.animation;
 
-    // 画像を完全に読み込むまで隠す
-    characterImage.style.visibility =
-        "hidden";
 
-    characterImage.addEventListener(
-        "load",
-        function () {
+// 画像を完全に読み込むまで隠す
+characterImage.style.visibility =
+    "hidden";
+
+
+// 先にloadイベントを登録
+characterImage.addEventListener(
+    "load",
+    function () {
 
         characterImage.style.visibility =
             "visible";
 
-    }
-);    
+        if (onReady) {
+            onReady();
+        }
 
+    },
+    { once: true }
+);
+
+
+// 最後に画像を読み込む
+characterImage.src =
+    randomCharacter.image;
 
     characterElement.appendChild(
         characterImage
@@ -846,12 +855,10 @@ if (isFirstDiscovery) {
     discoveryImage.style.visibility =
         "hidden";
 
-    discoveryImage.src =
-        character.image;
-
     discoveryImage.alt =
         character.name;
 
+    // 先にloadイベントを登録
     discoveryImage.addEventListener(
         "load",
         function () {
@@ -862,7 +869,9 @@ if (isFirstDiscovery) {
     },
     { once: true }
 );    
-
+// 最後に画像を読み込む
+discoveryImage.src =
+    character.image;
 // ==============================
 // 初発見・再発見でメッセージ変更
 // ==============================
