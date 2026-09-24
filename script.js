@@ -353,6 +353,17 @@ const characters = [
 
 ];
 // ==============================
+// キャラクター画像を先読み
+// ==============================
+
+characters.forEach(function (character) {
+
+    const img = new Image();
+
+    img.src = character.image;
+
+});
+// ==============================
 // 発見済みデータ
 // 20体版なので保存データを新しくする
 // ==============================
@@ -1172,36 +1183,122 @@ async function startCamera() {
 let mocorunAudio = null;
 
 
+// ==============================
+// モコルン音声を先読み
+// ==============================
+
+const mocorunVoiceFiles = [
+    "tapshite.mp3",
+    "miwatashite.mp3",
+    "kehai.mp3",
+    "mitsuketa.mp3",
+    "kocchidayo.mp3"
+];
+
+
+const mocorunVoices = {};
+
+
+mocorunVoiceFiles.forEach(
+    function (fileName) {
+
+        const audio =
+            new Audio(
+                "sounds/mocorun/" +
+                fileName
+            );
+
+        // 先に読み込んでおく
+        audio.preload = "auto";
+
+        audio.load();
+
+        mocorunVoices[fileName] =
+            audio;
+
+    }
+);
+
+
+// ==============================
+// モコルン音声を再生
+// ==============================
+
 function playMocorunVoice(fileName) {
 
-    // 前の声が鳴っていたら停止
-    if (mocorunAudio) {
+    // ==============================
+    // 鳴っているモコルン音声を
+    // 全部停止
+    // ==============================
 
-        mocorunAudio.pause();
-        mocorunAudio.currentTime = 0;
+    Object.values(
+        mocorunVoices
+    ).forEach(function (audio) {
+
+        audio.pause();
+
+        try {
+
+            audio.currentTime = 0;
+
+        } catch (error) {
+
+            // 読み込み前なら何もしない
+
+        }
+
+    });
+
+
+    // ==============================
+    // 指定された音声を取得
+    // ==============================
+
+    const audio =
+        mocorunVoices[fileName];
+
+
+    if (!audio) {
+
+        console.error(
+            "音声ファイルがありません:",
+            fileName
+        );
+
+        return;
 
     }
 
 
-    // 音声ファイルを読み込む
-    mocorunAudio =
-        new Audio(
-            "sounds/mocorun/" + fileName
-        );
-
+    mocorunAudio = audio;
 
     mocorunAudio.volume = 1;
 
+    mocorunAudio.currentTime = 0;
 
+
+    // ==============================
     // 再生
-    mocorunAudio.play().catch(function (error) {
+    // ==============================
 
-        console.error(
-            "モコルン音声再生エラー:",
-            error
+    const playPromise =
+        mocorunAudio.play();
+
+
+    if (playPromise !== undefined) {
+
+        playPromise.catch(
+            function (error) {
+
+                console.log(
+                    "モコルン音声を再生できませんでした:",
+                    error
+                );
+
+            }
         );
 
-    });
+    }
 
 }
 // ==============================
