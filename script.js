@@ -726,6 +726,20 @@ function spawnCharacter() {
         "character-image " +
         randomCharacter.animation;
 
+    // 画像を完全に読み込むまで隠す
+    characterImage.style.visibility =
+        "hidden";
+
+    characterImage.addEventListener(
+        "load",
+        function () {
+
+        characterImage.style.visibility =
+            "visible";
+
+    }
+);    
+
 
     characterElement.appendChild(
         characterImage
@@ -821,17 +835,33 @@ if (isFirstDiscovery) {
 
     // 発見したキャラクターの情報を設定
 
-    discoveryImage.src =
-        character.image;
-
-    discoveryImage.alt =
-        character.name;
+    
 
     discoveryName.textContent =
         character.name;
 
     discoveryRarity.textContent =
         character.rarity;
+
+    discoveryImage.style.visibility =
+        "hidden";
+
+    discoveryImage.src =
+        character.image;
+
+    discoveryImage.alt =
+        character.name;
+
+    discoveryImage.addEventListener(
+        "load",
+        function () {
+
+        discoveryImage.style.visibility =
+            "visible";
+
+    },
+    { once: true }
+);    
 
 // ==============================
 // 初発見・再発見でメッセージ変更
