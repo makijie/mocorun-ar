@@ -81,10 +81,13 @@ const mocorun3D =
 // ==============================
 // 3Dモコルン読み込み完了
 // ==============================
+let isMocorunLoaded = false;
 
 mocorun3D.addEventListener(
     "load",
     function () {
+
+        isMocorunLoaded = true;
 
         mocorun3D.classList.add(
             "model-loaded"
@@ -734,12 +737,31 @@ characterImage.addEventListener(
     "load",
     function () {
 
+        // キャラクター画像を表示
         characterImage.style.visibility =
             "visible";
 
-        if (onReady) {
-            onReady();
-        }
+
+        // ブラウザが実際に画面へ描画するのを待つ
+        requestAnimationFrame(function () {
+
+            requestAnimationFrame(function () {
+
+                // キャラクターが見えてから
+                // 少しだけ待って「見つけた！」へ
+                setTimeout(function () {
+
+                    if (onReady) {
+
+                        onReady();
+
+                    }
+
+                }, 150);
+
+            });
+
+        });
 
     },
     { once: true }
@@ -1190,18 +1212,55 @@ function showMocorunGuide() {
 
     mocorunGuide.classList.add("show");
 
-     // 最初は正面向き
+    // 最初は正面向き
     mocorun3D.setAttribute(
         "camera-orbit",
         "0deg 75deg 105%"
     );
 
-    mocorunSpeech.textContent =
-        "👆 ぼくをタップしてみて！";
 
-    playMocorunVoice(
-        "tapshite.mp3"
-    );   
+    // ==============================
+    // モコルン読み込み済み
+    // ==============================
+
+    if (mocorun3D.loaded) {
+
+        mocorunSpeech.textContent =
+            "👆 ぼくをタップしてみて！";
+
+        playMocorunVoice(
+            "tapshite.mp3"
+        );
+
+        return;
+
+    }
+
+
+    // ==============================
+    // まだ読み込み中
+    // ==============================
+
+    mocorunSpeech.textContent =
+        "✨ モコルンを呼んでいるよ…";
+
+
+    // 読み込み完了後に案内
+    mocorun3D.addEventListener(
+        "load",
+        function () {
+
+            mocorunSpeech.textContent =
+                "👆 ぼくをタップしてみて！";
+
+            playMocorunVoice(
+                "tapshite.mp3"
+            );
+
+        },
+        { once: true }
+    );
+
 }
 // ==============================
 // スポット別のヒント
