@@ -78,6 +78,31 @@ const mocorunGuide =
 const mocorun3D =
     document.getElementById("mocorun3D");
 
+// ==============================
+// 3Dモコルン読み込み完了
+// ==============================
+
+mocorun3D.addEventListener(
+    "load",
+    function () {
+
+        mocorun3D.classList.add(
+            "model-loaded"
+        );
+
+    }
+);
+
+
+// キャッシュですでに読み込み済みの場合
+if (mocorun3D.loaded) {
+
+    mocorun3D.classList.add(
+        "model-loaded"
+    );
+
+}
+
 const mocorunSpeech =
     document.getElementById("mocorunSpeech"); 
     

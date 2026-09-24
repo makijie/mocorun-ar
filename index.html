@@ -259,13 +259,19 @@
 <div id="mocorunGuide" class="mocorun-guide">
 
     <model-viewer
-        id="mocorun3D"
-        class="mocorun-3d"
-        src="models/mocorun.glb"
-        alt="3Dモコルン"
-        camera-controls
-        interaction-prompt="none"
-        shadow-intensity="1">
+    id="mocorun3D"
+    class="mocorun-3d"
+    src="models/mocorun.glb"
+    alt="3Dモコルン"
+    camera-controls
+    interaction-prompt="none"
+    shadow-intensity="1">
+
+        <div
+            slot="progress-bar"
+            style="display: none;">
+        </div>
+
     </model-viewer>
 
     <div id="mocorunSpeech" class="mocorun-speech">
