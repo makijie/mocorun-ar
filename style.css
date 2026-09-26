@@ -3114,3 +3114,50 @@ footer {
     margin-left: auto;
     margin-right: auto;
 }
+/* =========================
+   幻想スコープ獲得演出
+========================= */
+
+.scope-message {
+
+    opacity: 0;
+
+    transform: scale(0.7);
+
+    pointer-events: none;
+
+}
+
+
+/* 獲得時に表示 */
+
+.scope-message.show {
+
+    opacity: 1;
+
+    transform: scale(1);
+
+    animation:
+        scopeGet 0.7s ease;
+
+}
+
+
+@keyframes scopeGet {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}

@@ -461,6 +461,27 @@ startButton.addEventListener("click", function () {
     globalTopButton.style.display =
         "block";
 
+
+    // 幻想スコープをいったん隠す
+    const scopeMessage =
+        document.querySelector(
+            ".scope-message"
+        );
+
+    scopeMessage.classList.remove(
+        "show"
+    );
+
+
+    // 少し待ってから獲得演出
+    setTimeout(function () {
+
+        scopeMessage.classList.add(
+            "show"
+        );
+
+    }, 1200);
+
 });
 
 // ==============================
