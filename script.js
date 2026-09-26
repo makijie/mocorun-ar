@@ -478,6 +478,7 @@ let isSearching = false;
 
 let searchHintTimer = null;
 let searchResultTimer = null;
+let discoveryOpenTimer = null;
 
 
 // ==============================
@@ -1025,7 +1026,9 @@ characterImage.src =
 
 
             // 少し待って発見画面へ
-            setTimeout(function () {
+            discoveryOpenTimer = setTimeout(function () {
+
+                discoveryOpenTimer = null;
 
                 discoverCharacter(
                     randomCharacter
@@ -1190,6 +1193,10 @@ closeCollectionButton.addEventListener(
 
         collectionScreen.style.display =
             "none";
+
+        if (currentSpot) {
+            showSpotHint();
+        }
 
     }
 );
@@ -1675,6 +1682,16 @@ if (searchResultTimer) {
 
 }
 
+if (discoveryOpenTimer) {
+
+    clearTimeout(
+        discoveryOpenTimer
+    );
+
+    discoveryOpenTimer = null;
+
+}
+
 }
 // ==============================
 // モコルンをタップ
@@ -1763,6 +1780,9 @@ globalTopButton.addEventListener(
     "click",
     function () {
 
+        // 探索中のタイマー・音声・キャラクターを完全リセット
+        resetExplorationState();
+
         // 各画面を閉じる
         openingScreen.style.display =
             "none";
@@ -1777,6 +1797,9 @@ globalTopButton.addEventListener(
             "none";
 
         discoveryScreen.style.display =
+            "none";
+
+        completeScreen.style.display =
             "none";
 
 

@@ -491,7 +491,7 @@ footer {
 }
 
 
-@keyframes sparkle {
+@keyframes discoverySparkle {
 
     0% {
         transform: scale(0.8) rotate(0deg);
@@ -545,10 +545,6 @@ footer {
 
         font-size: 80px;
 
-    }
-
-    .spawn-character {
-        width: 100px;
     }
 
     /* モコルン横の星をスマホでは非表示 */
@@ -1847,7 +1843,7 @@ footer {
     letter-spacing: 15px;
 
     animation:
-        sparkle 1s ease-in-out infinite alternate;
+        discoverySparkle 1s ease-in-out infinite alternate;
 
 }
 
