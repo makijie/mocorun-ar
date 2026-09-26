@@ -3423,3 +3423,10 @@ footer {
     }
 
 }
+/* =========================
+   探索中だけ吹き出しを非表示
+========================= */
+
+.mocorun-guide.searching .mocorun-speech {
+    display: none;
+}
