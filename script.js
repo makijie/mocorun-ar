@@ -78,6 +78,9 @@ const mocorunGuide =
 const mocorun3D =
     document.getElementById("mocorun3D");
 
+const spotSelectButton =
+    document.getElementById("spotSelectButton");
+
 // ==============================
 // 3Dモコルン読み込み完了
 // ==============================
@@ -542,6 +545,74 @@ spotButtons.forEach(function (button) {
     });
 
 });
+
+// ==============================
+// エリア選択へ戻る
+// ==============================
+
+spotSelectButton.addEventListener(
+    "click",
+    function () {
+
+        // 探索画面を閉じる
+        exploreScreen.style.display =
+            "none";
+
+        // エリア選択画面を表示
+        spotScreen.style.display =
+            "flex";
+
+        // 上から表示
+        window.scrollTo({
+            top: 0,
+            behavior: "auto"
+        });
+
+        // 出現中キャラクターを消す
+        characterSpawnArea.innerHTML =
+            "";
+
+        // モコルンを隠す
+        mocorunGuide.classList.remove(
+            "show"
+        );
+
+        // 探索中クラスも解除
+        mocorunGuide.classList.remove(
+            "searching"
+        );
+
+        // カメラ停止
+        if (cameraVideo.srcObject) {
+
+            const tracks =
+                cameraVideo.srcObject.getTracks();
+
+            tracks.forEach(function (track) {
+
+                track.stop();
+
+            });
+
+            cameraVideo.srcObject =
+                null;
+
+        }
+
+        // カメラ用背景設定を解除
+        parkArea.classList.remove(
+            "camera-active"
+        );
+
+        // 探索ボタンを初期状態に戻す
+        searchButton.disabled =
+            false;
+
+        searchButton.textContent =
+            "🔍 探索する";
+
+    }
+);
 // ==============================
 // 「探索する」
 // ==============================
