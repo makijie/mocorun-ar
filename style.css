@@ -1664,6 +1664,101 @@ footer {
 
     }
 
+    .collection-rarity {
+
+    font-size: 11px;
+
+}
+
+
+.collection-profile {
+
+    margin-top: 8px;
+
+    padding-top: 6px;
+
+}
+
+
+.collection-profile p {
+
+    margin: 3px 0;
+
+    font-size: 10.5px;
+
+    line-height: 1.4;
+
+}
+
+
+.collection-profile span {
+
+    min-width: 30px;
+
+}
+    
+    /* =========================
+   図鑑カード詳細
+========================= */
+
+.collection-rarity {
+
+    margin-top: 4px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    color: #7c3aed;
+
+    white-space: nowrap;
+
+}
+
+
+.collection-profile {
+
+    width: 100%;
+
+    margin-top: 10px;
+
+    padding-top: 8px;
+
+    border-top:
+        1px solid
+        rgba(20, 83, 45, 0.15);
+
+    text-align: left;
+
+}
+
+
+.collection-profile p {
+
+    margin: 4px 0;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    color: #374151;
+
+}
+
+
+.collection-profile span {
+
+    display: inline-block;
+
+    min-width: 34px;
+
+    margin-right: 4px;
+
+    font-weight: bold;
+
+    color: #14532d;
+
+}
 }
 /* =========================
    キャラクター発見画面

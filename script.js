@@ -145,7 +145,11 @@ const characters = [
         rarity: "⭐ ノーマル",
         probability: 35,
         animation: "bounce",
-        isGuide: false
+        isGuide: false,
+
+        type: "草むらモンスター",
+        personality: "のんびり屋",
+        habit: "草むらにまぎれて昼寝する"
     },
 
     {
@@ -155,7 +159,11 @@ const characters = [
         rarity: "⭐ ノーマル",
         probability: 35,
         animation: "jump",
-        isGuide: false
+        isGuide: false,
+
+        type: "どんぐり族",
+        personality: "元気で好奇心旺盛",
+        habit: "木の下を走り回り木の実を集める"
     },
 
     {
@@ -165,7 +173,11 @@ const characters = [
         rarity: "⭐⭐ レア",
         probability: 20,
         animation: "sway",
-        isGuide: false
+        isGuide: false,
+
+        type: "蔦のふしぎ生物",
+        personality: "いたずら好き",
+        habit: "蔦を伸ばして物にからみつく"
     },
 
     {
@@ -175,8 +187,13 @@ const characters = [
         rarity: "⭐⭐⭐ スーパーレア",
         probability: 10,
         animation: "sprout",
-        isGuide: false
+        isGuide: false,
+
+        type: "根っこの魔物",
+        personality: "こわがり",
+        habit: "土の中にかくれて過ごす"
     },
+
 
     // ==============================
     // 花エリア
@@ -189,7 +206,11 @@ const characters = [
         rarity: "⭐ ノーマル",
         probability: 35,
         animation: "bounce",
-        isGuide: false
+        isGuide: false,
+
+        type: "きのこ族",
+        personality: "おっとり",
+        habit: "木陰でのんびり過ごす"
     },
 
     {
@@ -199,7 +220,11 @@ const characters = [
         rarity: "⭐ ノーマル",
         probability: 35,
         animation: "float",
-        isGuide: false
+        isGuide: false,
+
+        type: "綿毛の妖精",
+        personality: "自由気まま",
+        habit: "風に乗ってふわふわ旅をする"
     },
 
     {
@@ -209,7 +234,11 @@ const characters = [
         rarity: "⭐⭐ レア",
         probability: 20,
         animation: "sway",
-        isGuide: false
+        isGuide: false,
+
+        type: "花の小人",
+        personality: "ちょっとクール",
+        habit: "花の間に隠れて人を観察する"
     },
 
     {
@@ -219,8 +248,13 @@ const characters = [
         rarity: "⭐⭐⭐ スーパーレア",
         probability: 10,
         animation: "float",
-        isGuide: false
+        isGuide: false,
+
+        type: "アジサイの精霊",
+        personality: "おだやか",
+        habit: "雨の日になると元気になる"
     },
+
 
     // ==============================
     // 水辺エリア
@@ -233,7 +267,11 @@ const characters = [
         rarity: "⭐ ノーマル",
         probability: 35,
         animation: "ghost",
-        isGuide: false
+        isGuide: false,
+
+        type: "水のふしぎ生物",
+        personality: "マイペース",
+        habit: "水辺でぷるぷる跳ねて遊ぶ"
     },
 
     {
@@ -243,7 +281,11 @@ const characters = [
         rarity: "⭐ ノーマル",
         probability: 35,
         animation: "walk",
-        isGuide: false
+        isGuide: false,
+
+        type: "ちいさなカメのふしぎ生物",
+        personality: "がんばり屋",
+        habit: "ゆっくり歩きながら探検する"
     },
 
     {
@@ -253,7 +295,11 @@ const characters = [
         rarity: "⭐⭐ レア",
         probability: 20,
         animation: "sway",
-        isGuide: false
+        isGuide: false,
+
+        type: "コケのモンスター",
+        personality: "おとなしい",
+        habit: "湿った場所でじっとしている"
     },
 
     {
@@ -263,8 +309,13 @@ const characters = [
         rarity: "⭐⭐⭐ スーパーレア",
         probability: 10,
         animation: "jump",
-        isGuide: false
+        isGuide: false,
+
+        type: "カッパの妖怪",
+        personality: "やんちゃ",
+        habit: "水遊びといたずらが大好き"
     },
+
 
     // ==============================
     // 広場・遊具エリア
@@ -277,7 +328,11 @@ const characters = [
         rarity: "⭐ ノーマル",
         probability: 35,
         animation: "fly",
-        isGuide: false
+        isGuide: false,
+
+        type: "てんとう虫の妖精",
+        personality: "好奇心旺盛",
+        habit: "あちこち飛び回って様子を見る"
     },
 
     {
@@ -287,7 +342,11 @@ const characters = [
         rarity: "⭐ ノーマル",
         probability: 35,
         animation: "bounce",
-        isGuide: false
+        isGuide: false,
+
+        type: "石のモンスター",
+        personality: "無口でマイペース",
+        habit: "じっと動かず周りを見守る"
     },
 
     {
@@ -297,7 +356,11 @@ const characters = [
         rarity: "⭐⭐ レア",
         probability: 20,
         animation: "fly",
-        isGuide: false
+        isGuide: false,
+
+        type: "風の精霊",
+        personality: "せっかち",
+        habit: "広い場所をすばやく駆け抜ける"
     },
 
     {
@@ -307,8 +370,13 @@ const characters = [
         rarity: "⭐⭐⭐ スーパーレア",
         probability: 10,
         animation: "spin",
-        isGuide: false
+        isGuide: false,
+
+        type: "落ち葉の妖精",
+        personality: "陽気でお調子者",
+        habit: "風が吹くとくるくる舞い上がる"
     },
+
 
     // ==============================
     // ふしぎスポット
@@ -321,7 +389,11 @@ const characters = [
         rarity: "⭐ ノーマル",
         probability: 50,
         animation: "ghost",
-        isGuide: false
+        isGuide: false,
+
+        type: "おばけ",
+        personality: "人なつっこい",
+        habit: "気になる人の後をふわふわついていく"
     },
 
     {
@@ -331,7 +403,11 @@ const characters = [
         rarity: "⭐⭐ レア",
         probability: 30,
         animation: "jump",
-        isGuide: false
+        isGuide: false,
+
+        type: "妖怪",
+        personality: "いたずら好き",
+        habit: "物陰から突然顔を出して驚かせる"
     },
 
     {
@@ -341,7 +417,11 @@ const characters = [
         rarity: "⭐⭐⭐ スーパーレア",
         probability: 15,
         animation: "float",
-        isGuide: false
+        isGuide: false,
+
+        type: "自然を見守るエルフ",
+        personality: "やさしく慎重",
+        habit: "人に気づかれず公園の草木を見守る"
     },
 
     {
@@ -351,7 +431,11 @@ const characters = [
         rarity: "⭐⭐⭐⭐ 伝説級",
         probability: 5,
         animation: "fly",
-        isGuide: false
+        isGuide: false,
+
+        type: "伝説の火の鳥",
+        personality: "誇り高い",
+        habit: "めったに姿を見せず空を舞う"
     }
 
 ];
@@ -1152,9 +1236,28 @@ function showCollection() {
 
                 </div>
 
-                <div>
+                <div class="collection-rarity">
 
                     ${character.rarity}
+
+                </div>
+
+                <div class="collection-profile">
+
+                    <p>
+                        <span>分類</span>
+                        ${character.type}
+                    </p>
+
+                    <p>
+                        <span>性格</span>
+                        ${character.personality}
+                    </p>
+
+                    <p>
+                        <span>習性</span>
+                        ${character.habit}
+                    </p>
 
                 </div>
 
