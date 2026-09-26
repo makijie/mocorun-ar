@@ -3138,7 +3138,10 @@ footer {
     transform: scale(1);
 
     animation:
-        scopeGet 0.7s ease;
+        scopeGet 0.9s ease;
+
+    box-shadow:
+        0 0 18px rgba(168, 85, 247, 0.45);
 
 }
 
@@ -3147,17 +3150,30 @@ footer {
 
     0% {
         opacity: 0;
-        transform: scale(0.5);
+        transform:
+            translateY(20px)
+            scale(0.5);
     }
 
-    60% {
+    45% {
         opacity: 1;
-        transform: scale(1.15);
+        transform:
+            translateY(-8px)
+            scale(1.2);
+    }
+
+    70% {
+        transform:
+            translateY(3px)
+            scale(0.96);
     }
 
     100% {
         opacity: 1;
-        transform: scale(1);
+        transform:
+            translateY(0)
+            scale(1);
     }
 
 }
+
