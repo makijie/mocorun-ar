@@ -476,6 +476,9 @@ let currentSpot = "";
 
 let isSearching = false;
 
+let searchHintTimer = null;
+let searchResultTimer = null;
+
 
 // ==============================
 // GETできるキャラクター
@@ -638,6 +641,8 @@ spotSelectButton.addEventListener(
     "click",
     function () {
 
+        resetExplorationState();
+
         // 探索画面を閉じる
         exploreScreen.style.display =
             "none";
@@ -745,7 +750,7 @@ searchButton.addEventListener("click", function () {
 
 
     // 発見3.5秒前
-    setTimeout(function () {
+    searchHintTimer = setTimeout(function () {
 
         mocorunSpeech.textContent =
             "✨ 何か気配がするよ…！";
@@ -758,7 +763,7 @@ searchButton.addEventListener("click", function () {
 
 
     // キャラクター発見
-    setTimeout(function () {
+    searchResultTimer = setTimeout(function () {
 
         spawnCharacter(function() {
 
@@ -1163,6 +1168,8 @@ collectionButton.addEventListener(
 collectionTopButton.addEventListener(
     "click",
     function () {
+
+        resetExplorationState();
 
         showCollection();
 
@@ -1595,6 +1602,78 @@ function showSpotHint() {
             "✨ いつもと少し違う場所を探してみよう！";
 
     }
+
+}
+
+// ==============================
+// 探索状態を完全リセット
+// ==============================
+
+function resetExplorationState() {
+
+    // 探索中フラグを解除
+    isSearching = false;
+
+
+    // 出現キャラクターを消す
+    characterSpawnArea.innerHTML = "";
+
+
+    // モコルンの探索中状態を解除
+    mocorunGuide.classList.remove(
+        "searching"
+    );
+
+
+    // モコルンのジャンプ状態を解除
+    mocorun3D.classList.remove(
+        "jump-guide"
+    );
+
+
+    // モコルンを正面向きに戻す
+    mocorun3D.setAttribute(
+        "camera-orbit",
+        "0deg 75deg 105%"
+    );
+
+
+    // 探索ボタンを初期状態へ
+    searchButton.disabled = false;
+
+    searchButton.textContent =
+        "🔍 探索する";
+
+
+    // モコルン音声を停止
+    if (mocorunAudio) {
+
+        mocorunAudio.pause();
+
+        mocorunAudio.currentTime = 0;
+
+    }
+
+    if (searchHintTimer) {
+
+    clearTimeout(
+        searchHintTimer
+    );
+
+    searchHintTimer = null;
+
+}
+
+
+if (searchResultTimer) {
+
+    clearTimeout(
+        searchResultTimer
+    );
+
+    searchResultTimer = null;
+
+}
 
 }
 // ==============================

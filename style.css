@@ -1638,6 +1638,12 @@ footer {
 
     color: #374151;
 
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 6px;
+
 }
 
 
@@ -1646,8 +1652,6 @@ footer {
     display: inline-block;
 
     min-width: 38px;
-
-    margin-right: 6px;
 
     padding: 2px 6px;
 
@@ -1661,6 +1665,8 @@ footer {
     font-weight: bold;
 
     text-align: center;
+
+    flex-shrink: 0;
 
 }
 
