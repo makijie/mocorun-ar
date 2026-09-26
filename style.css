@@ -3219,3 +3219,29 @@ footer {
     }
 
 }
+/* =========================
+   幻想スコープ
+   スマホ表示
+========================= */
+
+@media screen and (max-width: 600px) {
+
+    .scope-message {
+
+        width: 82vw;
+
+        max-width: 340px;
+
+        padding: 14px 16px;
+
+        font-size: 17px;
+
+        line-height: 1.4;
+
+        border-radius: 18px;
+
+        white-space: nowrap;
+
+    }
+
+}
