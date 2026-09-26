@@ -2999,6 +2999,45 @@ footer {
 
     }
 
+    /* 探索画面の上部メニュー */
+    .explore-header {
+
+        height: 64px;
+
+        padding-top: 8px;
+        padding-right: 8px;
+        padding-bottom: 8px;
+
+        gap: 4px;
+
+    }
+
+
+    .scope-status {
+
+        font-size: 12px;
+
+        white-space: nowrap;
+
+        flex-shrink: 0;
+
+    }
+
+
+    .explore-header .icon-button {
+
+        padding: 7px 8px;
+
+        font-size: 12px;
+
+        border-radius: 15px;
+
+        white-space: nowrap;
+
+        flex-shrink: 0;
+
+    }
+
     .global-top-button {
 
         top: 10px;
