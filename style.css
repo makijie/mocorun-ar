@@ -1065,21 +1065,40 @@ footer {
 
     bottom: auto;
 
-    transform:
-        scale(0.5);
+    transform: none;
+
+}
+
+/* 探索中は3Dモコルンだけ小さくする */
+
+.mocorun-guide.searching .mocorun-3d {
+
+    transform: scale(0.5);
+
+    transform-origin: center bottom;
+
+    margin-top: -45px;
+
+    margin-bottom: -35px;
 
 }
 
 
 .mocorun-guide.searching .mocorun-speech {
 
-    font-size: 12px;
+    font-size: 13px;
 
-    max-width: 130px;
+    width: max-content;
 
-    padding: 7px 10px;
+    max-width: 190px;
 
-    line-height: 1.3;
+    padding: 8px 12px;
+
+    line-height: 1.45;
+
+    text-wrap: balance;
+
+    word-break: normal;
 
 }
 
