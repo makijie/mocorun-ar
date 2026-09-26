@@ -453,6 +453,11 @@ startButton.addEventListener("click", function () {
 
     openingScreen.style.display = "flex";
 
+    window.scrollTo({
+        top: 0,
+        behavior: "auto"
+    });
+
     globalTopButton.style.display =
         "block";
 
@@ -468,6 +473,10 @@ exploreButton.addEventListener("click", function () {
 
     spotScreen.style.display = "flex";
 
+    window.scrollTo({
+        top: 0,
+        behavior: "auto"
+    });
 });
 
 
@@ -1472,7 +1481,7 @@ mocorun3D.addEventListener(
     }
 );
     
-    // ==============================
+// ==============================
 // TOPへ戻る
 // ==============================
 
@@ -1548,6 +1557,11 @@ globalTopButton.addEventListener(
         globalTopButton.style.display =
             "none";
 
+        // トップ画面を上から表示
+        window.scrollTo({
+            top: 0,
+            behavior: "auto"
+        });    
     }
 );
 // ==============================
