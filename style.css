@@ -3245,3 +3245,19 @@ footer {
     }
 
 }
+@media screen and (max-width: 600px) {
+
+    .small-title,
+    .character-message,
+    .mocorun-intro,
+    .opening-text,
+    .spot-description,
+    .spot-detail {
+
+        text-wrap: balance;
+
+        line-height: 1.6;
+
+    }
+
+}
